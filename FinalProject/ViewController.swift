@@ -15,6 +15,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         print("hello world")
+        print("pull test")
+        
+        
+        
+        //aslfkjdsalkfj
+        
+        //sdalfkjdsoioewoi
+        //aslkdm
+        //another pull test
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +33,7 @@ class ViewController: UIViewController {
     }
 
     //add
+    //what do I do
     
 }
 
