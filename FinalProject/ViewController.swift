@@ -20,12 +20,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    //TDOES THIS WORK
-    //LETS HOPE SO
-    
-    
-    ///changes by anna
-    
-    //please god
+    //new changes
 }
 
