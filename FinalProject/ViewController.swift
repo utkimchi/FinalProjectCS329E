@@ -14,17 +14,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print("hello world")
-        print("pull test")
-        
-        
-        
-        //aslfkjdsalkfj
-        
-        //sdalfkjdsoioewoi
-        //aslkdm
-        //another pull test
-    
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +21,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    //Colton's Branch
     
 }
 
