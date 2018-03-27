@@ -18,51 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recycling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R04-T7-R2X">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recycling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R04-T7-R2X">
                                 <rect key="frame" x="150" y="150" width="74" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-Wo-sTv">
+                            <pickerView tag="1" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-Wo-sTv">
                                 <rect key="frame" x="0.0" y="179" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="laN-UR-DVk" id="VWS-N0-GuE"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9T-ba-LYh">
-                                <rect key="frame" x="166" y="349" width="43" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VZ-lg-xNb">
-                                <rect key="frame" x="170" y="599" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wab-AW-Ais">
-                                <rect key="frame" x="16" y="107" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <segments>
-                                    <segment title="Aluminum"/>
-                                    <segment title="Paper"/>
-                                    <segment title="Plastic"/>
-                                    <segment title="Glass"/>
-                                    <segment title="Cardboard"/>
-                                </segments>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuZ-46-Ibv">
-                                <rect key="frame" x="160" y="78" width="55" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-RE-TZ4">
                                 <rect key="frame" x="0.0" y="378" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -70,13 +38,69 @@
                                     <outlet property="dataSource" destination="laN-UR-DVk" id="1jr-2m-Bqy"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9T-ba-LYh">
+                                <rect key="frame" x="166" y="349" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wab-AW-Ais">
+                                <rect key="frame" x="42" y="107" width="291" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="Plastic"/>
+                                    <segment title="Paper"/>
+                                    <segment title="Cardboard"/>
+                                    <segment title="Glass"/>
+                                    <segment title="Metals"/>
+                                </segments>
+                                <connections>
+                                    <action selector="streamSelector:" destination="laN-UR-DVk" eventType="valueChanged" id="hxh-re-WvI"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuZ-46-Ibv">
+                                <rect key="frame" x="160" y="78" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUt-n6-1AI">
+                                <rect key="frame" x="46" y="617" width="38" height="30"/>
+                                <state key="normal" title="Undo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Af-Gq-hHU">
+                                <rect key="frame" x="292" y="617" width="36" height="30"/>
+                                <state key="normal" title="Redo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VZ-lg-xNb">
+                                <rect key="frame" x="166" y="548" width="43" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Add"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W9T-ba-LYh" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="285" id="Aad-Oo-LhQ"/>
+                            <constraint firstItem="9VZ-lg-xNb" firstAttribute="centerX" secondItem="tc1-FP-EFp" secondAttribute="centerX" id="ILg-PO-w9i"/>
+                            <constraint firstItem="W9T-ba-LYh" firstAttribute="centerX" secondItem="tc1-FP-EFp" secondAttribute="centerX" id="Iud-5P-pu6"/>
+                            <constraint firstItem="wab-AW-Ais" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="43" id="Kf8-cO-Wzw"/>
+                            <constraint firstItem="BUt-n6-1AI" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="553" id="MCW-lQ-doW"/>
+                            <constraint firstItem="wab-AW-Ais" firstAttribute="centerX" secondItem="tc1-FP-EFp" secondAttribute="centerX" id="RCc-pT-u4o"/>
+                            <constraint firstItem="NuZ-46-Ibv" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="14" id="TGy-ea-Vef"/>
+                            <constraint firstItem="R04-T7-R2X" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="86" id="TLN-x9-Lty"/>
+                            <constraint firstItem="R04-T7-R2X" firstAttribute="centerX" secondItem="tc1-FP-EFp" secondAttribute="centerX" id="bKh-jS-hex"/>
+                            <constraint firstItem="tc1-FP-EFp" firstAttribute="trailing" secondItem="0Af-Gq-hHU" secondAttribute="trailing" constant="47" id="fgb-kD-qMV"/>
+                            <constraint firstItem="0Af-Gq-hHU" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="553" id="gW6-jN-xNg"/>
+                            <constraint firstItem="NuZ-46-Ibv" firstAttribute="centerX" secondItem="tc1-FP-EFp" secondAttribute="centerX" id="kCg-Cq-B15"/>
+                            <constraint firstItem="9VZ-lg-xNb" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="484" id="kg3-in-Ise"/>
+                            <constraint firstItem="BUt-n6-1AI" firstAttribute="leading" secondItem="tc1-FP-EFp" secondAttribute="leading" constant="46" id="l4K-Bh-pTa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tc1-FP-EFp"/>
                     </view>
                     <navigationItem key="navigationItem" id="6qF-Aj-xSM"/>
                     <connections>
                         <outlet property="recyclePicker" destination="DDa-Wo-sTv" id="awR-of-Arx"/>
+                        <outlet property="streamSegment" destination="wab-AW-Ais" id="PSc-Hi-KtE"/>
                         <outlet property="trashPicker" destination="DeD-RE-TZ4" id="eUg-ba-Rsm"/>
                     </connections>
                 </viewController>

@@ -12,7 +12,31 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
     
     @IBOutlet weak var recyclePicker: UIPickerView!
     @IBOutlet weak var trashPicker: UIPickerView!
+    @IBOutlet weak var streamSegment: UISegmentedControl!
+    //Stream ID
+    var streamType:String = "Plastic"
     
+    @IBAction func streamSelector(_ sender: Any) {
+        switch streamSegment.selectedSegmentIndex{
+        case 0:
+            streamType = "Plastic"
+            picker1Options = ["Tiny : Utensils","Small : Cups","Medium: Bottles","Large: Jugs","Huge : Buckets"]
+        case 1:
+            streamType = "Paper"
+            picker1Options = ["Tiny : 1 Sheet","Small : 5 Sheets","Medium: 10 Sheets","Large: Magazine(30 Sheets)","Huge : Newspaper(60 Sheets)"]
+        case 2:
+            streamType = "Cardboard"
+            picker1Options = ["Tiny : Ring Box","Small : DVD Box","Medium: Cereal Box","Large: Shoe Box","Huge : Microwave Box"]
+        case 3:
+            streamType = "Glass"
+            picker1Options = ["Tiny : Shards","Small : Jars","Medium: Soda Bottle","Large: Wine Bottle","Huge : Jugs"]
+        case 4:
+            streamType = "Metals"
+            picker1Options = ["Tiny : Bottle Tabs","Small : Foil","Medium: Soda Cans","Large: Coffee Cans","Huge : Microwave"]
+        default:
+            break
+        }
+    }
     
     //Recycling Array
     var picker1Options:[String] = []
@@ -21,8 +45,10 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        picker1Options = ["Tiny","Small","Medium","Large","Huge"]
-        picker2Options = ["Tiny","Small","Medium","Large","Huge"]
+        
+        //Initial Picker
+        picker1Options = ["Tiny : Utensils","Small : Cups","Medium: Bottles","Large: Jugs","Huge : Buckets"]
+        picker2Options = ["Tiny: Wrapper","Small : Apple","Medium : NBA Shoe","Large : Basketball","Huge : Microwave"]
         // Do any additional setup after loading the view.
         
         recyclePicker.delegate = self
