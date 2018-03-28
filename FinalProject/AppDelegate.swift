@@ -7,18 +7,58 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+import FacebookLogin
+import FacebookCore
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error != nil) {
+            //common error when user click cancel instead of sign in
+            print("We have sign-in error: \(error)")
+        } else {
+            print("Our user signed in! \(user)")
+        }
+    }
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        if (configureError != nil) {
+            print("Have error \(configureError)")
+        }
+        //add the declaration here for sign in
+        GIDSignIn.sharedInstance().delegate = self
+        
+        return SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //Old facebook login code
+        //return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
+    //handle incoming URL
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication =  options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
+        let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
+        
+        let googleHandler = GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation )
+        
+        let facebookHandler = SDKApplicationDelegate.shared.application(app, open:url, options: options)
+        //old fb handler URL key
+        //let facebookHandler = FBSDKApplicationDelegate.sharedInstance().application (app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        return googleHandler || facebookHandler
+    }
+    
+    //Old GoogleCode
+    //func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        //return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+    //}
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -40,7 +80,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
