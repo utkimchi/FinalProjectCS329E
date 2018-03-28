@@ -68,15 +68,21 @@
                                 <rect key="frame" x="46" y="617" width="38" height="30"/>
                                 <state key="normal" title="Undo"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Af-Gq-hHU">
-                                <rect key="frame" x="292" y="617" width="36" height="30"/>
-                                <state key="normal" title="Redo"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VZ-lg-xNb">
                                 <rect key="frame" x="166" y="548" width="43" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addDataButton:" destination="laN-UR-DVk" eventType="touchUpInside" id="vtI-1v-n8u"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VED-Ub-aa6">
+                                <rect key="frame" x="166" y="617" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -89,8 +95,6 @@
                             <constraint firstItem="NuZ-46-Ibv" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="14" id="TGy-ea-Vef"/>
                             <constraint firstItem="R04-T7-R2X" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="86" id="TLN-x9-Lty"/>
                             <constraint firstItem="R04-T7-R2X" firstAttribute="centerX" secondItem="tc1-FP-EFp" secondAttribute="centerX" id="bKh-jS-hex"/>
-                            <constraint firstItem="tc1-FP-EFp" firstAttribute="trailing" secondItem="0Af-Gq-hHU" secondAttribute="trailing" constant="47" id="fgb-kD-qMV"/>
-                            <constraint firstItem="0Af-Gq-hHU" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="553" id="gW6-jN-xNg"/>
                             <constraint firstItem="NuZ-46-Ibv" firstAttribute="centerX" secondItem="tc1-FP-EFp" secondAttribute="centerX" id="kCg-Cq-B15"/>
                             <constraint firstItem="9VZ-lg-xNb" firstAttribute="top" secondItem="tc1-FP-EFp" secondAttribute="top" constant="484" id="kg3-in-Ise"/>
                             <constraint firstItem="BUt-n6-1AI" firstAttribute="leading" secondItem="tc1-FP-EFp" secondAttribute="leading" constant="46" id="l4K-Bh-pTa"/>
@@ -99,6 +103,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6qF-Aj-xSM"/>
                     <connections>
+                        <outlet property="checkDataLabel" destination="VED-Ub-aa6" id="RmT-wl-aHX"/>
                         <outlet property="recyclePicker" destination="DDa-Wo-sTv" id="awR-of-Arx"/>
                         <outlet property="streamSegment" destination="wab-AW-Ais" id="PSc-Hi-KtE"/>
                         <outlet property="trashPicker" destination="DeD-RE-TZ4" id="eUg-ba-Rsm"/>
