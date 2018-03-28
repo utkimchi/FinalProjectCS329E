@@ -18,7 +18,7 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
     var streamType:String = "Plastic"
     
     //Sets info
-    var ownerInfo: Recycler?
+    var ownerInfo: Recycler!
     
     //Segmented controller
     @IBAction func streamSelector(_ sender: Any) {
@@ -111,14 +111,16 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         //Milliliters
         switch recycleIndex {
         case 0:
-            newVolume = 125
+            newVolume = 0
         case 1:
-            newVolume = 200
+            newVolume = 125
         case 2:
-            newVolume = 330
+            newVolume = 200
         case 3:
-            newVolume = 750
+            newVolume = 300
         case 4:
+            newVolume = 750
+        case 5:
             newVolume = 1200
         default:
             break
@@ -128,7 +130,7 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         // Set the attribute values
         switch streamType {
         case "Plastic":
-            print(ownerInfo?.value(forKey: "plasticTotal") as! String)
+            print(ownerInfo!.value(forKey: "plasticTotal") as! String)
             var totalPlastic:Int = ownerInfo?.value(forKey: "plasticTotal") as! Int
             totalPlastic = totalPlastic + newVolume
             ownerInfo?.setValue(recycleIndex, forKey: "plasticTotal")
