@@ -7,12 +7,75 @@
 //
 
 import UIKit
+import CoreData
 import FirebaseAuth
 import FacebookCore
 import FacebookLogin
 
-class SignInViewController: UIViewController, GIDSignInUIDelegate, LoginButtonDelegate {
+class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate, LoginButtonDelegate {
     
+    @IBOutlet weak var loginTextfield: UITextField!
+    var alertController:UIAlertController? = nil
+    
+    // Not called when alert is dismissed.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    //Keyobard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    //Normal Login
+    @IBAction func loginButton(_ sender: UIButton) {
+        if loginTextfield.text == ""{
+            self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            }
+            self.alertController!.addAction(OKAction)
+            
+            self.present(self.alertController!, animated: true, completion:nil)
+        }
+            //Create recycler
+        else{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            // Create the entity we want to save
+            let entity =  NSEntityDescription.entity(forEntityName: "Recycler", in: managedContext)
+            
+            let recycler = NSManagedObject(entity: entity!, insertInto:managedContext)
+            
+            recycler.setValue(0, forKey: "cardboardTotal")
+            recycler.setValue(0, forKey: "glassTotal")
+            recycler.setValue(0, forKey: "metalsTotal")
+            recycler.setValue(0, forKey: "paperTotal")
+            recycler.setValue(0, forKey: "plasticTotal")
+            recycler.setValue(loginTextfield.text, forKey: "name")
+            
+            // Commit the changes.
+            do {
+                try managedContext.save()
+            } catch {
+                // what to do if an error occurs?
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+        }
+    }
+    
+    
+    
+    //Facebook Login
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         switch result {
         case .success:
@@ -39,6 +102,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, LoginButtonDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Login
+        self.loginTextfield.delegate = self
         
         //set the Google ui delegate
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -77,4 +142,19 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, LoginButtonDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ItemCollector"{
+            _ = segue.destination as? ItemSelectorView
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
+    }
 }
+
+
+
