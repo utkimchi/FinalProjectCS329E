@@ -18,6 +18,7 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
     //Check to see what saved
     @IBOutlet weak var checkDataLabel: UILabel!
     @IBOutlet weak var nameCheckLabel: UILabel!
+    @IBOutlet weak var totalGarbLabel: UILabel!
     
     //Stream ID
     var streamType:String = "Plastic"
@@ -125,11 +126,19 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
     //Title of Picker Row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView.tag == 1){
-            recycleIndex = row
+            print(row)
             return (picker1Options[row])
         }else{
             trashIndex = row
             return (picker2Options[row])
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (pickerView.tag == 1){
+            recycleIndex = row
+        }else{
+            trashIndex = row
         }
     }
     
@@ -145,6 +154,7 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         
         let managedContext = appDelegate.persistentContainer.viewContext
         var newVolume:Int = 0
+        var newGarbageV:Int = 0
         
         //Milliliters
         switch recycleIndex {
@@ -164,7 +174,27 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
             break
         }
         
+        switch trashIndex {
+        case 0:
+            newGarbageV = 0
+        case 1:
+            newGarbageV = 125
+        case 2:
+            newGarbageV = 200
+        case 3:
+            newGarbageV = 300
+        case 4:
+            newGarbageV = 750
+        case 5:
+            newGarbageV = 1200
+        default:
+            break
+        }
+        
+        //Recycling
         var totalTrash:Int = 0
+        //Trash
+        var totalGarbage:Int = ownerInfo.value(forKey: "pureGarbageTotal") as! Int
         
         // Set the attribute values
         switch streamType {
@@ -175,24 +205,29 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         case "Paper":
             totalTrash = ownerInfo.value(forKey: "paperTotal") as! Int
             totalTrash = totalTrash + newVolume
-            ownerInfo.setValue(recycleIndex, forKey: "paperTotal")
+            ownerInfo.setValue(totalTrash, forKey: "paperTotal")
         case "Cardboard":
             totalTrash = ownerInfo.value(forKey: "cardboardTotal") as! Int
             totalTrash = totalTrash + newVolume
-            ownerInfo.setValue(recycleIndex, forKey: "cardboardTotal")
+            ownerInfo.setValue(totalTrash, forKey: "cardboardTotal")
         case "Glass":
             totalTrash = ownerInfo.value(forKey: "glassTotal") as! Int
             totalTrash = totalTrash + newVolume
-            ownerInfo.setValue(recycleIndex, forKey: "glassTotal")
+            ownerInfo.setValue(totalTrash, forKey: "glassTotal")
         case "Metals":
             totalTrash = ownerInfo.value(forKey: "metalsTotal") as! Int
             totalTrash = totalTrash + newVolume
-            ownerInfo.setValue(recycleIndex, forKey: "metalsTotal")
+            ownerInfo.setValue(totalTrash, forKey: "metalsTotal")
         default:
             break
         }
         
-        checkDataLabel.text = "You saved about \(totalTrash) milliters of \(streamType)"
+        totalGarbage = totalGarbage + newGarbageV
+        ownerInfo.setValue(totalGarbage, forKey: "pureGarbageTotal")
+        
+        
+        checkDataLabel.text = "added ~ \(newVolume) ml of \(streamType) & ~ \(newGarbageV) ml of garbage"
+        totalGarbLabel.text = "\(ownerInfo.value(forKey: "pureGarbageTotal") as! Int) ml yo have in total"
         
         // Commit the changes.
         do {

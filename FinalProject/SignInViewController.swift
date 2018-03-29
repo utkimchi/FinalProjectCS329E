@@ -59,6 +59,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
             recycler.setValue(0, forKey: "metalsTotal")
             recycler.setValue(0, forKey: "paperTotal")
             recycler.setValue(0, forKey: "plasticTotal")
+            recycler.setValue(0, forKey: "pureGarbageTotal")
             recycler.setValue(loginTextfield.text, forKey: "name")
             
             // Commit the changes.

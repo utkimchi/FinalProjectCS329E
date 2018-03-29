@@ -23,5 +23,6 @@ extension Recycler {
     @NSManaged public var glassTotal: Int64
     @NSManaged public var metalsTotal: Int64
     @NSManaged public var name: String
+    @NSManaged public var pureGarbageTotal: Int64
 
 }

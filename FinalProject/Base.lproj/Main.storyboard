@@ -158,6 +158,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-vm-h7G">
+                                <rect key="frame" x="92" y="626" width="267" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Save something!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nh7-Gp-eAL">
                                 <rect key="frame" x="16" y="597" width="317" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -192,6 +199,7 @@
                         <outlet property="nameCheckLabel" destination="pjM-tk-nMT" id="tFB-bP-5N9"/>
                         <outlet property="recyclePicker" destination="Bjj-Kg-JXv" id="6Wr-GC-KTr"/>
                         <outlet property="streamSegment" destination="fWs-Zk-AgT" id="PeP-Te-5G1"/>
+                        <outlet property="totalGarbLabel" destination="gwy-vm-h7G" id="k1u-rG-04M"/>
                         <outlet property="trashPicker" destination="nNh-Gf-fbD" id="yqh-b2-ozt"/>
                     </connections>
                 </viewController>
