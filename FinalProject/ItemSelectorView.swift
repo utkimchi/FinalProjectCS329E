@@ -226,8 +226,8 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         ownerInfo.setValue(totalGarbage, forKey: "pureGarbageTotal")
         
         
-        checkDataLabel.text = "added ~ \(newVolume) ml of \(streamType) & ~ \(newGarbageV) ml of garbage"
-        totalGarbLabel.text = "\(ownerInfo.value(forKey: "pureGarbageTotal") as! Int) ml yo have in total"
+        checkDataLabel.text = " +\(newVolume) ml of \(streamType) & +\(newGarbageV) ml of garbage"
+        totalGarbLabel.text = "\(ownerInfo.value(forKey: "pureGarbageTotal") as! Int) ml of trash you have in total"
         
         // Commit the changes.
         do {
