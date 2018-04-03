@@ -15,6 +15,7 @@ import FacebookLogin
 class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate, LoginButtonDelegate {
     
     @IBOutlet weak var loginTextfield: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     var alertController:UIAlertController? = nil
     
     // Not called when alert is dismissed.
@@ -34,8 +35,43 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
     
     //Normal Login
     @IBAction func loginButton(_ sender: UIButton) {
-        if loginTextfield.text == ""{
-            self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
+        var ownerInfoArr = [NSManagedObject]()
+        var ownerInfo = NSManagedObject()
+        var username:String = "testusernameNobody"
+        var password:String = "xxxReallySecretCode"
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
+        
+        //
+        var fetchedResult: [NSManagedObject]? = nil
+        
+        do {
+            try fetchedResult = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResult {
+            if results.count == 0{
+                print("nothing here")
+            }
+            else{
+                ownerInfoArr = results
+                ownerInfo = ownerInfoArr[0]
+                username = (ownerInfo.value(forKey: "name") as! String)
+                password = (ownerInfo.value(forKey: "password") as! String)
+            }
+        } else {
+            print("Could not fetch")
+        }
+        
+       if loginTextfield.text == "" || passwordTextField.text == ""{
+            self.alertController = UIAlertController(title: "Error", message: "Make sure both fields are full", preferredStyle: UIAlertControllerStyle.alert)
             
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             }
@@ -43,35 +79,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
             
             self.present(self.alertController!, animated: true, completion:nil)
         }
-            //Create recycler
-        else{
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        else if username != loginTextfield.text || password != passwordTextField.text{
+            self.alertController = UIAlertController(title: "Error", message: "Username / Password Combination Incorrect", preferredStyle: UIAlertControllerStyle.alert)
             
-            let managedContext = appDelegate.persistentContainer.viewContext
-            
-            // Create the entity we want to save
-            let entity =  NSEntityDescription.entity(forEntityName: "Recycler", in: managedContext)
-            
-            let recycler = NSManagedObject(entity: entity!, insertInto:managedContext)
-            
-            recycler.setValue(0, forKey: "cardboardTotal")
-            recycler.setValue(0, forKey: "glassTotal")
-            recycler.setValue(0, forKey: "metalsTotal")
-            recycler.setValue(0, forKey: "paperTotal")
-            recycler.setValue(0, forKey: "plasticTotal")
-            recycler.setValue(0, forKey: "pureGarbageTotal")
-            recycler.setValue(loginTextfield.text, forKey: "name")
-            
-            // Commit the changes.
-            do {
-                try managedContext.save()
-            } catch {
-                // what to do if an error occurs?
-                let nserror = error as NSError
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                abort()
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             }
+            self.alertController!.addAction(OKAction)
+            
+            self.present(self.alertController!, animated: true, completion:nil)
         }
+        
     }
     
     
@@ -105,6 +122,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
         super.viewDidLoad()
         //Login
         self.loginTextfield.delegate = self
+        self.passwordTextField.delegate = self
         
         //set the Google ui delegate
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -150,6 +168,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
         
         if segue.identifier == "ItemCollector"{
             _ = segue.destination as? ItemSelectorView
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
+        else if segue.identifier == "RegisterView"
+        {
+            _ = segue.destination as? RegistrationViewController
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
