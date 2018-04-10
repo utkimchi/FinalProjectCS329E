@@ -39,7 +39,7 @@
                                 <state key="normal" title="Login!"/>
                                 <connections>
                                     <action selector="loginButton:" destination="vaJ-gM-XAA" eventType="touchUpInside" id="nw3-a5-5cI"/>
-                                    <segue destination="Da6-rX-nQ0" kind="show" identifier="ItemSelector" id="CY0-le-UGf"/>
+                                    <segue destination="Jtx-EV-3wH" kind="show" identifier="LandingPage" id="ON9-HF-bZs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWb-In-maY">
@@ -193,7 +193,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aa0-hO-YGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Z8c-fa-8ia" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1213.5999999999999" y="425.93703148425789"/>
+            <point key="canvasLocation" x="1022" y="377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gjK-cc-N2B">
@@ -212,6 +212,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioj-od-Gwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-498" y="834"/>
+        </scene>
+        <!--Landing Page View Controller-->
+        <scene sceneID="yVO-Mw-XuB">
+            <objects>
+                <viewController id="Jtx-EV-3wH" customClass="LandingPageViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ogl-iK-XjN" customClass="Landing">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1V-Ii-gtM">
+                                <rect key="frame" x="156" y="542" width="62" height="30"/>
+                                <state key="normal" title="Item Add"/>
+                                <connections>
+                                    <action selector="itemSelectorButton:" destination="Jtx-EV-3wH" eventType="touchUpInside" id="rPL-HS-J6k"/>
+                                    <segue destination="Da6-rX-nQ0" kind="show" identifier="ItemSelector" id="emO-q8-kRw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fv-3Q-Xvj">
+                                <rect key="frame" x="257" y="595" width="66" height="30"/>
+                                <state key="normal" title="Friends"/>
+                                <connections>
+                                    <action selector="friendsListButton:" destination="Jtx-EV-3wH" eventType="touchUpInside" id="cbF-tb-TPG"/>
+                                    <segue destination="y6g-KH-5f3" kind="show" identifier="FriendsList" id="zxH-dI-8cc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uba-Yf-qZc" firstAttribute="trailing" secondItem="8Fv-3Q-Xvj" secondAttribute="trailing" constant="52" id="CQI-T8-xrE"/>
+                            <constraint firstItem="B1V-Ii-gtM" firstAttribute="centerX" secondItem="uba-Yf-qZc" secondAttribute="centerX" id="LLt-EI-fte"/>
+                            <constraint firstItem="8Fv-3Q-Xvj" firstAttribute="leading" secondItem="uba-Yf-qZc" secondAttribute="leading" constant="257" id="bSF-wu-cv8"/>
+                            <constraint firstItem="8Fv-3Q-Xvj" firstAttribute="top" secondItem="uba-Yf-qZc" secondAttribute="top" constant="531" id="s7O-fB-xIM"/>
+                            <constraint firstItem="B1V-Ii-gtM" firstAttribute="top" secondItem="uba-Yf-qZc" secondAttribute="top" constant="478" id="vQV-b5-OCT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uba-Yf-qZc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ruv-GO-lt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.5" y="1408.5"/>
         </scene>
         <!--Item Selector View-->
         <scene sceneID="wZc-6e-AG2">
@@ -332,7 +372,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCA-mI-lys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248.8" y="1097.9010494752624"/>
+            <point key="canvasLocation" x="2033" y="1254"/>
+        </scene>
+        <!--Friends List View Controller-->
+        <scene sceneID="BQr-Wb-Ue9">
+            <objects>
+                <viewController id="y6g-KH-5f3" customClass="FriendsListViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RQs-2Q-gu0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="ibL-kC-rXJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iy9-1h-O5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2031" y="1944"/>
         </scene>
     </scenes>
 </document>

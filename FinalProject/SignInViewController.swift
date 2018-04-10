@@ -166,7 +166,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "ItemCollector"{
+        if segue.identifier == "LandingPage"{
             _ = segue.destination as? ItemSelectorView
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
