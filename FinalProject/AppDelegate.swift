@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FacebookLogin
 import FacebookCore
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -37,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         //add the declaration here for sign in
         GIDSignIn.sharedInstance().delegate = self
+        
+        //FIREBASE
+        FirebaseApp.configure()
         
         return SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         

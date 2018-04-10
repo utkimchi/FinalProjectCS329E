@@ -14,6 +14,7 @@
 		D70CEDD22074267B00358E81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CEDD12074267B00358E81 /* RegistrationViewController.swift */; };
 		D74F7758207D660200A8F02B /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74F7757207D660200A8F02B /* LandingPageViewController.swift */; };
 		D74F775A207D69EA00A8F02B /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74F7759207D69EA00A8F02B /* FriendsListViewController.swift */; };
+		D74F775C207D6BB700A8F02B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D74F775B207D6BB700A8F02B /* GoogleService-Info.plist */; };
 		D75AB009206C5E1000BF6EFD /* FinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D75AB007206C5E1000BF6EFD /* FinalProject.xcdatamodeld */; };
 		D75AB00B206C5E2000BF6EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB00A206C5E2000BF6EFD /* AppDelegate.swift */; };
 		D75AB00D206C5E2800BF6EFD /* Recycler+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB00C206C5E2800BF6EFD /* Recycler+CoreDataClass.swift */; };
@@ -61,6 +62,7 @@
 		D70CEDD12074267B00358E81 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D74F7757207D660200A8F02B /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D74F7759207D69EA00A8F02B /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		D74F775B207D6BB700A8F02B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D75AB008206C5E1000BF6EFD /* FinalProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinalProject.xcdatamodel; sourceTree = "<group>"; };
 		D75AB00A206C5E2000BF6EFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D75AB00C206C5E2800BF6EFD /* Recycler+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recycler+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				D70CEDD12074267B00358E81 /* RegistrationViewController.swift */,
 				D75AB010206C5E3500BF6EFD /* ItemSelectorView.swift */,
 				D74F7757207D660200A8F02B /* LandingPageViewController.swift */,
+				D74F7759207D69EA00A8F02B /* FriendsListViewController.swift */,
 				D7F274D92061D17F00F3C901 /* Main.storyboard */,
 				D7F274DE2061D17F00F3C901 /* LaunchScreen.storyboard */,
 				D7F274DC2061D17F00F3C901 /* Assets.xcassets */,
@@ -170,7 +173,7 @@
 				9C5AE8DE206B49C300DA1C40 /* GoogleService-Info.plist */,
 				9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */,
 				D75AB007206C5E1000BF6EFD /* FinalProject.xcdatamodeld */,
-				D74F7759207D69EA00A8F02B /* FriendsListViewController.swift */,
+				D74F775B207D6BB700A8F02B /* GoogleService-Info.plist */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -224,8 +227,6 @@
 				D7F274E22061D17F00F3C901 /* Sources */,
 				D7F274E32061D17F00F3C901 /* Frameworks */,
 				D7F274E42061D17F00F3C901 /* Resources */,
-				BD2430E7D546AF6C34886E39 /* [CP] Embed Pods Frameworks */,
-				8028413D82CBCA17ED89EEA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,8 +246,6 @@
 				D7F274ED2061D17F00F3C901 /* Sources */,
 				D7F274EE2061D17F00F3C901 /* Frameworks */,
 				D7F274EF2061D17F00F3C901 /* Resources */,
-				039AD4876ECC6E4B60BD9F4B /* [CP] Embed Pods Frameworks */,
-				215A826787B35ECED35040B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,6 +316,7 @@
 			files = (
 				D7F274E02061D17F00F3C901 /* LaunchScreen.storyboard in Resources */,
 				9C5AE8DF206B49C400DA1C40 /* GoogleService-Info.plist in Resources */,
+				D74F775C207D6BB700A8F02B /* GoogleService-Info.plist in Resources */,
 				D7F274DD2061D17F00F3C901 /* Assets.xcassets in Resources */,
 				D7F274DB2061D17F00F3C901 /* Main.storyboard in Resources */,
 			);
@@ -339,36 +339,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		039AD4876ECC6E4B60BD9F4B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProjectUITests/Pods-FinalProjectUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		215A826787B35ECED35040B9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProjectUITests/Pods-FinalProjectUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		420A4B34B9A63812158C3C1A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,36 +411,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8028413D82CBCA17ED89EEA2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProjectTests/Pods-FinalProjectTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BD2430E7D546AF6C34886E39 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalProjectTests/Pods-FinalProjectTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CE9B3068F138B8D6AF7E1BDC /* [CP] Copy Pods Resources */ = {
