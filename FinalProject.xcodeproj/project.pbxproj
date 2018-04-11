@@ -20,6 +20,8 @@
 		D75AB00D206C5E2800BF6EFD /* Recycler+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB00C206C5E2800BF6EFD /* Recycler+CoreDataClass.swift */; };
 		D75AB00F206C5E2D00BF6EFD /* Recycler+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB00E206C5E2C00BF6EFD /* Recycler+CoreDataProperties.swift */; };
 		D75AB011206C5E3500BF6EFD /* ItemSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB010206C5E3500BF6EFD /* ItemSelectorView.swift */; };
+		D7A4D6E9207D7931001FA543 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4D6E8207D7931001FA543 /* DataStore.swift */; };
+		D7A4D6EB207D7950001FA543 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4D6EA207D7950001FA543 /* Person.swift */; };
 		D7F274DB2061D17F00F3C901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F274D92061D17F00F3C901 /* Main.storyboard */; };
 		D7F274DD2061D17F00F3C901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7F274DC2061D17F00F3C901 /* Assets.xcassets */; };
 		D7F274E02061D17F00F3C901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F274DE2061D17F00F3C901 /* LaunchScreen.storyboard */; };
@@ -68,6 +70,8 @@
 		D75AB00C206C5E2800BF6EFD /* Recycler+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recycler+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D75AB00E206C5E2C00BF6EFD /* Recycler+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recycler+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D75AB010206C5E3500BF6EFD /* ItemSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSelectorView.swift; sourceTree = "<group>"; };
+		D7A4D6E8207D7931001FA543 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		D7A4D6EA207D7950001FA543 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D7F274D22061D17F00F3C901 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F274DA2061D17F00F3C901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7F274DC2061D17F00F3C901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				D75AB010206C5E3500BF6EFD /* ItemSelectorView.swift */,
 				D74F7757207D660200A8F02B /* LandingPageViewController.swift */,
 				D74F7759207D69EA00A8F02B /* FriendsListViewController.swift */,
+				D7A4D6E8207D7931001FA543 /* DataStore.swift */,
+				D7A4D6EA207D7950001FA543 /* Person.swift */,
 				D7F274D92061D17F00F3C901 /* Main.storyboard */,
 				D7F274DE2061D17F00F3C901 /* LaunchScreen.storyboard */,
 				D7F274DC2061D17F00F3C901 /* Assets.xcassets */,
@@ -461,6 +467,8 @@
 				D75AB00D206C5E2800BF6EFD /* Recycler+CoreDataClass.swift in Sources */,
 				D75AB00B206C5E2000BF6EFD /* AppDelegate.swift in Sources */,
 				D75AB011206C5E3500BF6EFD /* ItemSelectorView.swift in Sources */,
+				D7A4D6E9207D7931001FA543 /* DataStore.swift in Sources */,
+				D7A4D6EB207D7950001FA543 /* Person.swift in Sources */,
 				D74F7758207D660200A8F02B /* LandingPageViewController.swift in Sources */,
 				D74F775A207D69EA00A8F02B /* FriendsListViewController.swift in Sources */,
 				9C5AE8DD206B470000DA1C40 /* SignInViewController.swift in Sources */,

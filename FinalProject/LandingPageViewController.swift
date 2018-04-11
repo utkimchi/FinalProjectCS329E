@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LandingPageViewController: UIViewController {
     
@@ -15,9 +16,43 @@ class LandingPageViewController: UIViewController {
     @IBAction func friendsListButton(_ sender: Any) {
     }
     
+    var ownerInfoArr = [NSManagedObject]()
+    var ownerInfo = NSManagedObject()
+    var ownerName:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
+        
+        //
+        var fetchedResult: [NSManagedObject]? = nil
+        
+        do {
+            try fetchedResult = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResult {
+            ownerInfoArr = results
+        } else {
+            print("Could not fetch")
+        }
+        
+        //Pulls the data from owner to Array
+        ownerInfo = ownerInfoArr[0]
+        
+        ownerName = (ownerInfo.value(forKey: "name") as! String)
+        
+        //FIREBASE
+        //DataStore.shared.loadFriends(ownerName: ownerName)
         // Do any additional setup after loading the view.
     }
 
