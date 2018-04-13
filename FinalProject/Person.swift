@@ -18,6 +18,7 @@ class Person {
     var garbageTotal: String
     var username: String
     var password: String
+    var backgroundcolor : String
     
     // Shouldn't this be a list?
     // var friendsList = [String]()
@@ -33,6 +34,7 @@ class Person {
         self.username = username
         self.password = password
         self.friendsList = friendsList
+        self.backgroundcolor = "white"
     }
 }
 

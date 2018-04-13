@@ -10,9 +10,13 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    var colors = [UIColor.white]
+    var indes = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setScreenTitle()
+        self.view.backgroundColor = colors[indes]
         // Do any additional setup after loading the view.
     }
     
