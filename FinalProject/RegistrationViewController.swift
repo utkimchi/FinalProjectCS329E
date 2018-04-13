@@ -30,13 +30,16 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    //Keyobard
+    //Keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    // Event handler for the Save User button
     @IBAction func saveUserInfo(_ sender: UIButton) {
+        
+        // Sends a pop-up alert if username or password field are empty
         if usernameTField.text == "" || passwordTField.text == ""{
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
             
@@ -46,6 +49,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             
             self.present(self.alertController!, animated: true, completion:nil)
         }
+            
             //Create recycler
         else{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -54,13 +58,14 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             
             // Create the entity we want to save
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
-            print("Check1")
+
+            print("Check1")            //bug check
             do{
                 let check = try managedContext.fetch(fetchRequest)
-                print(check.count)
+                print(check.count)          //bug check
                 if check.count == 1
                 {
-                    print("Heyo! I'm overwritten")
+                    print("Heyo! I'm overwritten")            //bug check
                     let recycler = check[0] as! NSManagedObject
                     recycler.setValue(0, forKey: "cardboardTotal")
                     recycler.setValue(0, forKey: "glassTotal")

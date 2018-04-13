@@ -28,6 +28,7 @@
 		D7F274EB2061D17F00F3C901 /* FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F274EA2061D17F00F3C901 /* FinalProjectTests.swift */; };
 		D7F274F62061D17F00F3C901 /* FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F274F52061D17F00F3C901 /* FinalProjectUITests.swift */; };
 		E3C192AD94CE033B1FEA2609 /* Pods_FinalProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE6C2663BD22BD0BB7CF78A /* Pods_FinalProjectTests.framework */; };
+		F06686B720802AE500941CC3 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06686B620802AE500941CC3 /* AddFriendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		D7F274F12061D17F00F3C901 /* FinalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F274F52061D17F00F3C901 /* FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectUITests.swift; sourceTree = "<group>"; };
 		D7F274F72061D17F00F3C901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F06686B620802AE500941CC3 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				9C5AE8E4206B688E00DA1C40 /* FinalProject.entitlements */,
 				D75AB00A206C5E2000BF6EFD /* AppDelegate.swift */,
+				F06686B620802AE500941CC3 /* AddFriendViewController.swift */,
 				9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */,
 				D70CEDD12074267B00358E81 /* RegistrationViewController.swift */,
 				D75AB010206C5E3500BF6EFD /* ItemSelectorView.swift */,
@@ -464,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06686B720802AE500941CC3 /* AddFriendViewController.swift in Sources */,
 				D75AB00D206C5E2800BF6EFD /* Recycler+CoreDataClass.swift in Sources */,
 				D75AB00B206C5E2000BF6EFD /* AppDelegate.swift in Sources */,
 				D75AB011206C5E3500BF6EFD /* ItemSelectorView.swift in Sources */,

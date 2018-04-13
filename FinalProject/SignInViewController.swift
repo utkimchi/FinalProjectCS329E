@@ -70,6 +70,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
             print("Could not fetch")
         }
         
+    // Sends a pop-up alert if either the login or password fields are empty
        if loginTextfield.text == "" || passwordTextField.text == ""{
             self.alertController = UIAlertController(title: "Error", message: "Make sure both fields are full", preferredStyle: UIAlertControllerStyle.alert)
             

@@ -18,6 +18,9 @@ class Person {
     var garbageTotal: String
     var username: String
     var password: String
+    
+    // Shouldn't this be a list?
+    // var friendsList = [String]()
     var friendsList: String
     
     init(username: String, password: String, friendsList: String) {
