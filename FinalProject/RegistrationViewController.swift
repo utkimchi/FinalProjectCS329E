@@ -18,13 +18,19 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScreenTitle()
         
         // Do any additional setup after loading the view.
         
         self.usernameTField.delegate = self
         self.passwordTField.delegate = self
     }
-
+    
+    //setting the screeentitle
+    private func setScreenTitle() {
+        self.title = "Create Account"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

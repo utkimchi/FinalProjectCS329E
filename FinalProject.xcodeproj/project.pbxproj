@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B987EBD0C209FCA3F305293 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E75E35D3AC89FC2112737EC /* Pods_FinalProject.framework */; };
+		9C1763CF2080545200FFA9B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */; };
+		9C1763D12080545D00FFA9B7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763D02080545D00FFA9B7 /* SettingViewController.swift */; };
 		9C5AE8DD206B470000DA1C40 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */; };
 		9C5AE8DF206B49C400DA1C40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C5AE8DE206B49C300DA1C40 /* GoogleService-Info.plist */; };
 		B0E735FBE86A4A1EEA972E89 /* Pods_FinalProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A32DB06410B0FD910A96B /* Pods_FinalProjectUITests.framework */; };
@@ -54,6 +56,8 @@
 		683AE80835DBF0DA2A7C26AA /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		69E0757A4C0501E2781E05BB /* Pods-FinalProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProjectUITests/Pods-FinalProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8E75E35D3AC89FC2112737EC /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9C1763D02080545D00FFA9B7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9C5AE8DE206B49C300DA1C40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinalProject-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 				9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */,
 				D75AB007206C5E1000BF6EFD /* FinalProject.xcdatamodeld */,
 				D74F775B207D6BB700A8F02B /* GoogleService-Info.plist */,
+				9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */,
+				9C1763D02080545D00FFA9B7 /* SettingViewController.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -458,11 +464,13 @@
 				D75AB00B206C5E2000BF6EFD /* AppDelegate.swift in Sources */,
 				D75AB011206C5E3500BF6EFD /* ItemSelectorView.swift in Sources */,
 				D7A4D6E9207D7931001FA543 /* DataStore.swift in Sources */,
+				9C1763D12080545D00FFA9B7 /* SettingViewController.swift in Sources */,
 				D7A4D6EB207D7950001FA543 /* Person.swift in Sources */,
 				D74F7758207D660200A8F02B /* LandingPageViewController.swift in Sources */,
 				D74F775A207D69EA00A8F02B /* FriendsListViewController.swift in Sources */,
 				9C5AE8DD206B470000DA1C40 /* SignInViewController.swift in Sources */,
 				D70CEDD22074267B00358E81 /* RegistrationViewController.swift in Sources */,
+				9C1763CF2080545200FFA9B7 /* ProfileViewController.swift in Sources */,
 				D75AB009206C5E1000BF6EFD /* FinalProject.xcdatamodeld in Sources */,
 				D75AB00F206C5E2D00BF6EFD /* Recycler+CoreDataProperties.swift in Sources */,
 			);

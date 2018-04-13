@@ -53,6 +53,7 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScreenTitle()
         
         //Initial Picker
         picker1Options = ["Nothing", "Tiny : Utensils","Small : Cups","Medium: Bottles","Large: Jugs","Huge : Buckets"]
@@ -240,6 +241,10 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         }
     }
     
+    //setting the screeentitle
+    private func setScreenTitle() {
+        self.title = "Add"
+    }
     
     /*
     // MARK: - Navigation

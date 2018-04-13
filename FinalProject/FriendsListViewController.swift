@@ -15,10 +15,15 @@ class FriendsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setScreenTitle()
         // Do any additional setup after loading the view.
     }
 
+    //setting the screeentitle
+    private func setScreenTitle() {
+        self.title = "Friends List"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

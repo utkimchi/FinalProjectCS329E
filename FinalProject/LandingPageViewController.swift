@@ -44,6 +44,7 @@ class LandingPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScreenTitle()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -119,6 +120,10 @@ class LandingPageViewController: UIViewController {
             navigationItem.backBarButtonItem = backItem
         }
     }
-  
+    
+    //setting the screeentitle
+    private func setScreenTitle() {
+        self.title = "Welcome to Recyclops!"
+    }
 
 }

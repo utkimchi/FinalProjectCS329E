@@ -12,6 +12,7 @@ class AddFriendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScreenTitle()
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +22,10 @@ class AddFriendViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //setting the screeentitle
+    private func setScreenTitle() {
+        self.title = "Add Friend"
+    }
 
     /*
     // MARK: - Navigation
