@@ -17,6 +17,9 @@ extension Recycler {
         return NSFetchRequest<Recycler>(entityName: "Recycler")
     }
 
+    @NSManaged public var age: String
+    @NSManaged public var city: String
+    @NSManaged public var gender: String
     @NSManaged public var paperTotal: Int64
     @NSManaged public var plasticTotal: Int64
     @NSManaged public var cardboardTotal: Int64
@@ -25,5 +28,6 @@ extension Recycler {
     @NSManaged public var name: String
     @NSManaged public var pureGarbageTotal: Int64
     @NSManaged public var password: String
+    
 
 }
