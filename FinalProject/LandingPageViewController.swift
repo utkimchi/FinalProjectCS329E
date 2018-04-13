@@ -76,12 +76,12 @@ class LandingPageViewController: UIViewController {
         ownerName = (ownerInfo.value(forKey: "name") as! String)
         
         // Set value labels to respective ownerInfo values
-        glassValue.text = (ownerInfo.value(forKey: "glassTotal") as! String)
-        cardboardValue.text = (ownerInfo.value(forKey: "cardboardTotal") as! String)
-        metalValue.text = (ownerInfo.value(forKey: "metalTotal") as! String)
-        paperValue.text = (ownerInfo.value(forKey: "paperTotal") as! String)
-        plasticValue.text = (ownerInfo.value(forKey: "plasticTotal") as! String)
-        recyclingValue.text = ((ownerInfo.value(forKey: "glassTotal") + ownerInfo.value(forKey: "cardboardTotal") + ownerInfo.value(forKey: "metalTotal") + ownerInfo.value(forKey: "paperTotal") + ownerInfo.value(forKey: "plasticTotal")) as! String)
+//        glassValue.text = (ownerInfo.value(forKey: "glassTotal") as! String)
+//        cardboardValue.text = (ownerInfo.value(forKey: "cardboardTotal") as! String)
+//        metalValue.text = (ownerInfo.value(forKey: "metalTotal") as! String)
+//        paperValue.text = (ownerInfo.value(forKey: "paperTotal") as! String)
+//        plasticValue.text = (ownerInfo.value(forKey: "plasticTotal") as! String)
+        //recyclingValue.text = ((ownerInfo.value(forKey: "glassTotal") + ownerInfo.value(forKey: "cardboardTotal") + ownerInfo.value(forKey: "metalTotal") + ownerInfo.value(forKey: "paperTotal") + ownerInfo.value(forKey: "plasticTotal")) as! String)
         
         //FIREBASE
         //DataStore.shared.loadFriends(ownerName: ownerName)

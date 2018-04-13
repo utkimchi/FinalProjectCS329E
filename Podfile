@@ -11,9 +11,6 @@ target 'FinalProject' do
   pod 'FirebaseCore'
   pod 'FirebaseDatabase'
   pod 'FirebaseAuth'
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
   
   #Firebase
   pod 'Firebase/Core'

@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 import FirebaseDatabase
 import FirebaseAuth
-import FacebookLogin
-import FacebookCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -27,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         var configureError: NSError?
@@ -38,27 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //add the declaration here for sign in
         GIDSignIn.sharedInstance().delegate = self
         
-        //FIREBASE
-        FirebaseApp.configure()
-        
-        return SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        //Old facebook login code
-        //return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        return true
     }
     
     //handle incoming URL
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        let sourceApplication =  options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
-        let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
+    private func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool{
         
-        let googleHandler = GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation )
-        
-        let facebookHandler = SDKApplicationDelegate.shared.application(app, open:url, options: options)
-        //old fb handler URL key
-        //let facebookHandler = FBSDKApplicationDelegate.sharedInstance().application (app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-        
-        return googleHandler || facebookHandler
+        return GIDSignIn.sharedInstance().handle(url as URL?, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
