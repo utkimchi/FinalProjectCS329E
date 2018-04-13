@@ -46,6 +46,13 @@ class LandingPageViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         
+
+        //FIREBASE
+        //DataStore.shared.loadFriends(ownerName: ownerName)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -76,16 +83,39 @@ class LandingPageViewController: UIViewController {
         // Sets the ownerName variable by pullling from the data in the ownerInfo variable
         ownerName = (ownerInfo.value(forKey: "name") as! String)
         
-        // Set value labels to respective ownerInfo values
-//        glassValue.text = (ownerInfo.value(forKey: "glassTotal") as! String)
-//        cardboardValue.text = (ownerInfo.value(forKey: "cardboardTotal") as! String)
-//        metalValue.text = (ownerInfo.value(forKey: "metalTotal") as! String)
-//        paperValue.text = (ownerInfo.value(forKey: "paperTotal") as! String)
-//        plasticValue.text = (ownerInfo.value(forKey: "plasticTotal") as! String)
-        //recyclingValue.text = ((ownerInfo.value(forKey: "glassTotal") + ownerInfo.value(forKey: "cardboardTotal") + ownerInfo.value(forKey: "metalTotal") + ownerInfo.value(forKey: "paperTotal") + ownerInfo.value(forKey: "plasticTotal")) as! String)
+        var totalRecycling: Int = 0
         
-        //FIREBASE
-        //DataStore.shared.loadFriends(ownerName: ownerName)
+        
+        // Set value labels to respective ownerInfo values
+        if let glassNum = ownerInfo.value(forKey: "glassTotal") as? Int{
+            glassValue.text = String(glassNum)
+            totalRecycling += glassNum
+        }
+        if let cardNum = ownerInfo.value(forKey: "cardboardTotal") as? Int{
+            cardboardValue.text = String(cardNum)
+            totalRecycling += cardNum
+        }
+        if let metalNum = ownerInfo.value(forKey: "metalsTotal") as? Int{
+            metalValue.text = String(metalNum)
+            totalRecycling += metalNum
+        }
+        if let paperNum = ownerInfo.value(forKey: "paperTotal") as? Int{
+            paperValue.text = String(paperNum)
+            totalRecycling += paperNum
+        }
+        if let plasticNum = ownerInfo.value(forKey: "plasticTotal") as? Int{
+            plasticValue.text = String(plasticNum)
+            totalRecycling += plasticNum
+        }
+        if let glassNum = ownerInfo.value(forKey: "glassTotal") as? Int{
+            glassValue.text = String(glassNum)
+            totalRecycling += glassNum
+        }
+        if let garbageNum = ownerInfo.value(forKey: "pureGarbageTotal") as? Int {
+            garbageValue.text = String(garbageNum)
+        }
+        
+        recyclingValue.text = String(totalRecycling)
     }
 
     override func didReceiveMemoryWarning() {

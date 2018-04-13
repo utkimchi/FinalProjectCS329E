@@ -125,7 +125,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 
                 successLabel.text = ("Welcome \(recycler.value(forKey: "name") as! String)!")
                 let person = Person(username: usernameTField.text!, password: passwordTField.text!, friendsList: "" )
-                DataStore.shared.addUser(person: person)
+                //FireBase
+                //DataStore.shared.addUser(person: person)
             }
             
             
