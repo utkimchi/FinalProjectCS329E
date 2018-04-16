@@ -27,24 +27,24 @@ class Person {
     
     // Shouldn't this be a list?
     // var friendsList = [String]()
-    var friendsList: String
+    var friendsList = [String]()
     
-    init(username: String, password: String, city: String, state: String, gender: String, humanName: String, age: String, friendsList: String) {
-        self.cardBoardTotal = "0"
-        self.glassTotal = "0"
-        self.metalsTotal = "0"
-        self.paperTotal = "0"
-        self.plasticTotal = "0"
-        self.garbageTotal = "0"
+    init(cardBoardTotal: String, glassTotal: String, metalsTotal: String, paperTotal: String, garbageTotal: String, plasticTotal: String, username: String, password: String, city: String, state: String, gender: String, humanName: String, age: String, friendsList : [String], backgroundColor: String) {
+        self.cardBoardTotal = cardBoardTotal
+        self.glassTotal = glassTotal
+        self.metalsTotal = metalsTotal
+        self.paperTotal = paperTotal
+        self.plasticTotal = plasticTotal
+        self.garbageTotal = garbageTotal
         self.username = username
         self.password = password
         self.city = city
         self.state = state
         self.gender = gender
         self.humanName = humanName
-        self.age = age
         self.friendsList = friendsList
-        self.backgroundColor = "white"
+        self.age = age
+        self.backgroundColor = backgroundColor
     }
 }
 

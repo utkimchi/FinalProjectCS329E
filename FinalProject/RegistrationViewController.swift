@@ -86,6 +86,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                     recycler.setValue(0, forKey: "paperTotal")
                     recycler.setValue(0, forKey: "plasticTotal")
                     recycler.setValue(0, forKey: "pureGarbageTotal")
+                    recycler.setValue(["Recycler"], forKey: "friendsList")
                     recycler.setValue(usernameTField.text, forKey: "name")
                     recycler.setValue(passwordTField.text, forKey: "password")
                     recycler.setValue(nameTField.text, forKey: "humanName")
@@ -104,6 +105,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                     }
                     
                     successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
+                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "white")
+                    DataStore.shared.addUser(person: person)
                 }
             }
             catch
@@ -122,6 +125,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 recycler.setValue(0, forKey: "paperTotal")
                 recycler.setValue(0, forKey: "plasticTotal")
                 recycler.setValue(0, forKey: "pureGarbageTotal")
+                recycler.setValue(["Recycler"], forKey: "friendsList")
                 recycler.setValue(usernameTField.text, forKey: "name")
                 recycler.setValue(passwordTField.text, forKey: "password")
                 recycler.setValue(nameTField.text, forKey: "humanName")
@@ -141,9 +145,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                let person = Person(username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: "" )
+                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "white")
                 //FireBase
-                //DataStore.shared.addUser(person: person)
+                DataStore.shared.addUser(person: person)
             }
         }
     }

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FirebaseDatabase
 import FirebaseAuth
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -34,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         //add the declaration here for sign in
         GIDSignIn.sharedInstance().delegate = self
-        
+        FirebaseApp.configure()
         return true
     }
     

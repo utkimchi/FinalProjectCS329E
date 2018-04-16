@@ -7,8 +7,30 @@
 //
 
 import UIKit
+import Firebase
+import CoreData
 
-class FriendsListViewController: UIViewController {
+class FriendsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var friendsListViewController: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DataStore.shared.count()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath)
+        let person = DataStore.shared.getPerson(index: indexPath.row)
+        cell.textLabel?.text = "\(person.humanName)"
+        cell.detailTextLabel?.text = "\(person.garbageTotal)"
+        
+        return cell
+    }
+    
     @IBAction func addFriendButton(_ sender: UIButton) {
         
     }
@@ -17,6 +39,8 @@ class FriendsListViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         // Do any additional setup after loading the view.
+        friendsListViewController.delegate = self
+        friendsListViewController.dataSource = self
     }
 
     //setting the screeentitle
