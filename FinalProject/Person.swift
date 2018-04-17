@@ -44,7 +44,7 @@ class Person {
         self.humanName = humanName
         self.age = age
         self.friendsList = friendsList
-        self.backgroundColor = "white"
+        self.backgroundColor = "lightGray"
     }
 }
 

@@ -86,4 +86,15 @@ class ProfileViewController: UIViewController {
             genderValue.text = profilegender
         }
     }
+    
+    //make sure the back button displays correctly
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SettingPage"{
+            _ = segue.destination as? SettingViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
+    }
 }

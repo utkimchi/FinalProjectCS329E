@@ -44,8 +44,6 @@ class LandingPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setScreenTitle()
-        
-
         //FIREBASE
         //DataStore.shared.loadFriends(ownerName: ownerName)
     }
@@ -84,7 +82,6 @@ class LandingPageViewController: UIViewController {
         
         var totalRecycling: Int = 0
         
-        
         // Set value labels to respective ownerInfo values
         if let glassNum = ownerInfo.value(forKey: "glassTotal") as? Int{
             glassValue.text = String(glassNum)
@@ -115,6 +112,7 @@ class LandingPageViewController: UIViewController {
         }
         
         recyclingValue.text = String(totalRecycling)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -142,6 +140,12 @@ class LandingPageViewController: UIViewController {
         }
         else if segue.identifier == "AddFriend"{
             _ = segue.destination as? AddFriendViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
+        else if segue.identifier == "ProfilePage"{
+            _ = segue.destination as? ProfileViewController
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
