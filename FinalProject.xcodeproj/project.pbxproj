@@ -11,7 +11,6 @@
 		9C1763CF2080545200FFA9B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */; };
 		9C1763D12080545D00FFA9B7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763D02080545D00FFA9B7 /* SettingViewController.swift */; };
 		9C5AE8DD206B470000DA1C40 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */; };
-		9C5AE8DF206B49C400DA1C40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C5AE8DE206B49C300DA1C40 /* GoogleService-Info.plist */; };
 		B0E735FBE86A4A1EEA972E89 /* Pods_FinalProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A32DB06410B0FD910A96B /* Pods_FinalProjectUITests.framework */; };
 		D70CEDD22074267B00358E81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CEDD12074267B00358E81 /* RegistrationViewController.swift */; };
 		D74F7758207D660200A8F02B /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74F7757207D660200A8F02B /* LandingPageViewController.swift */; };
@@ -21,6 +20,7 @@
 		D75AB00D206C5E2800BF6EFD /* Recycler+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB00C206C5E2800BF6EFD /* Recycler+CoreDataClass.swift */; };
 		D75AB00F206C5E2D00BF6EFD /* Recycler+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB00E206C5E2C00BF6EFD /* Recycler+CoreDataProperties.swift */; };
 		D75AB011206C5E3500BF6EFD /* ItemSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AB010206C5E3500BF6EFD /* ItemSelectorView.swift */; };
+		D77B0F7020853CBA00FE00CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D77B0F6F20853CBA00FE00CA /* GoogleService-Info.plist */; };
 		D7A4D6E9207D7931001FA543 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4D6E8207D7931001FA543 /* DataStore.swift */; };
 		D7A4D6EB207D7950001FA543 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4D6EA207D7950001FA543 /* Person.swift */; };
 		D7F274DB2061D17F00F3C901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F274D92061D17F00F3C901 /* Main.storyboard */; };
@@ -58,7 +58,6 @@
 		9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C1763D02080545D00FFA9B7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		9C5AE8DE206B49C300DA1C40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinalProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		9C5AE8E4206B688E00DA1C40 /* FinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinalProject.entitlements; sourceTree = "<group>"; };
 		9CE6C2663BD22BD0BB7CF78A /* Pods_FinalProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +72,7 @@
 		D75AB00C206C5E2800BF6EFD /* Recycler+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recycler+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D75AB00E206C5E2C00BF6EFD /* Recycler+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recycler+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D75AB010206C5E3500BF6EFD /* ItemSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSelectorView.swift; sourceTree = "<group>"; };
+		D77B0F6F20853CBA00FE00CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7A4D6E8207D7931001FA543 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D7A4D6EA207D7950001FA543 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D7F274D22061D17F00F3C901 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,8 +183,8 @@
 				D7F274DE2061D17F00F3C901 /* LaunchScreen.storyboard */,
 				D7F274DC2061D17F00F3C901 /* Assets.xcassets */,
 				D7F274E12061D17F00F3C901 /* Info.plist */,
-				9C5AE8DE206B49C300DA1C40 /* GoogleService-Info.plist */,
 				9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */,
+				D77B0F6F20853CBA00FE00CA /* GoogleService-Info.plist */,
 				D75AB007206C5E1000BF6EFD /* FinalProject.xcdatamodeld */,
 			);
 			path = FinalProject;
@@ -327,7 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7F274E02061D17F00F3C901 /* LaunchScreen.storyboard in Resources */,
-				9C5AE8DF206B49C400DA1C40 /* GoogleService-Info.plist in Resources */,
+				D77B0F7020853CBA00FE00CA /* GoogleService-Info.plist in Resources */,
 				D7F274DD2061D17F00F3C901 /* Assets.xcassets in Resources */,
 				D7F274DB2061D17F00F3C901 /* Main.storyboard in Resources */,
 			);
@@ -638,7 +638,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FinalProject/FinalProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GH6P94KKA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CS329E.Group12.FinalProject;
@@ -658,7 +658,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FinalProject/FinalProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GH6P94KKA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CS329E.Group12.FinalProject;

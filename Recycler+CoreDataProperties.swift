@@ -31,6 +31,8 @@ extension Recycler {
     @NSManaged public var backgroundColor: String
     @NSManaged public var state: String
     @NSManaged public var humanName: String
+    @NSManaged public var friendsList: [String]
+
 
     
 

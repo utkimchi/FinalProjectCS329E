@@ -45,11 +45,11 @@ class LandingPageViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         //FIREBASE
-        //DataStore.shared.loadFriends(ownerName: ownerName)
+        DataStore.shared.loadFriends(ownerName: ownerName)
+        print("or here")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
+    func getOwner(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -79,6 +79,11 @@ class LandingPageViewController: UIViewController {
         
         // Sets the ownerName variable by pullling from the data in the ownerInfo variable
         ownerName = (ownerInfo.value(forKey: "name") as! String)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getOwner()
         
         var totalRecycling: Int = 0
         
