@@ -28,6 +28,10 @@ class LandingPageViewController: UIViewController {
     @IBOutlet weak var garbageValue: UILabel!
     @IBOutlet weak var recyclingValue: UILabel!
     
+    //background colors
+    let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
+    var indes = 0
+    
     // Buttons
     @IBAction func itemSelectorButton(_ sender: UIButton) {
     }
@@ -117,6 +121,11 @@ class LandingPageViewController: UIViewController {
         }
         
         recyclingValue.text = String(totalRecycling)
+        
+        let background = ownerInfo.value(forKey: "backgroundColor") as? Int
+        indes = background!
+        self.view.backgroundColor = colors[indes]
+  
         
     }
 

@@ -28,12 +28,9 @@ extension Recycler {
     @NSManaged public var name: String
     @NSManaged public var pureGarbageTotal: Int64
     @NSManaged public var password: String
-    @NSManaged public var backgroundColor: String
+    @NSManaged public var backgroundColor: Int64
     @NSManaged public var state: String
     @NSManaged public var humanName: String
     @NSManaged public var friendsList: [String]
-
-
-    
 
 }

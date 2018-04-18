@@ -20,6 +20,10 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
     @IBOutlet weak var nameCheckLabel: UILabel!
     @IBOutlet weak var totalGarbLabel: UILabel!
     
+    //background colors
+    let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
+    var indes = 0
+    
     //Stream ID
     var streamType:String = "Plastic"
     
@@ -100,6 +104,10 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         ownerInfo = ownerInfoArr[0]
         
         nameCheckLabel.text = (ownerInfo.value(forKey: "name") as! String)
+        
+        let background = ownerInfo.value(forKey: "backgroundColor") as? Int
+        indes = background!
+        self.view.backgroundColor = colors[indes]
     }
 
     override func didReceiveMemoryWarning() {
@@ -245,15 +253,4 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
     private func setScreenTitle() {
         self.title = "Add"
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

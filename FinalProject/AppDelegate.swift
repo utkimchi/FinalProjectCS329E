@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("Our user signed in! \(user)")
         }
     }
-    
+
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

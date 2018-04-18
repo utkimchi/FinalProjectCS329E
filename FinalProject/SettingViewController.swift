@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var passwordvalue: UITextField!
     @IBOutlet weak var namevalue: UITextField!
@@ -30,30 +30,67 @@ class SettingViewController: UIViewController {
     }
     
     //Profile Photo change
+    
+    @IBOutlet var myImageView: UIImageView!
     @IBAction func photoChange(_ sender: UIButton) {
+        let image = UIImagePickerController()
+        image.delegate = self
         
+        //get it from photolibrary
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        image.allowsEditing = false
+        self.present(image, animated: true)
+        {
+            //after it is complete, do this if needed
+        }
+    }
+    
+    //when the user has picked its image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        //want to try to convert it into a UIImage
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            myImageView.image = image
+        //if there's an error loading the photo
+        } else {
+            //Error Message
+            print("Not working")
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     
-    //background color change choosing
-    let colors = [UIColor.red, UIColor.lightGray, UIColor.white]
+    //background color change choosing    
+    let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
     var indes = 0
     
+    
     @IBAction func backgroundcolor(_ sender: UIButton) {
-        self.view.backgroundColor = colors[indes]
+        
+        ////update changes made to the profile
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let dummyIndex = (ownerInfo.value(forKey: "backgroundColor") as! Int)
+        indes = dummyIndex
+        
         if indes == colors.count - 1 {
             indes = 0
         } else {
             indes += 1
         }
-        //performSegue(withIdentifier: "profiletosetting", sender: self)
-    }
-    
-    //before the segue, you take the data and throw it to whichever is next
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let profileViewController = segue.destination as! ProfileViewController
-        profileViewController.colors = colors
-        profileViewController.indes = indes
+        self.view.backgroundColor = colors[indes]
+        self.ownerInfo.setValue(indes, forKey: "backgroundColor")
+        
+        // Commit the changes.
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }        
     }
     
     //set up the submit button
@@ -149,6 +186,10 @@ class SettingViewController: UIViewController {
         cityvalue.text = dummyCity
         let dummyState = (ownerInfo.value(forKey: "state") as! String)
         statevalue.text = dummyState
+        
+        let background = ownerInfo.value(forKey: "backgroundColor") as? Int
+        indes = background!
+        self.view.backgroundColor = colors[indes]
     }
 
     override func viewDidLoad() {

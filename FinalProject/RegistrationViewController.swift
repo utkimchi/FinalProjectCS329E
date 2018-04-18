@@ -94,6 +94,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                     recycler.setValue(stateTField.text, forKey: "state")
                     recycler.setValue(sexTField.text, forKey: "gender")
                     recycler.setValue(ageTField.text, forKey: "age")
+                    recycler.setValue(1, forKey: "backgroundColor")
                     entityExists = true
                     do {
                         try managedContext.save()
@@ -105,7 +106,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                     }
                     
                     successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "white")
+                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
                     DataStore.shared.addUser(person: person)
                 }
             }
@@ -133,6 +134,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 recycler.setValue(stateTField.text, forKey: "state")
                 recycler.setValue(sexTField.text, forKey: "gender")
                 recycler.setValue(ageTField.text, forKey: "age")
+                recycler.setValue(1, forKey: "backgroundColor")
                 
                 // Commit the changes.
                 do {
@@ -145,7 +147,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "white")
+                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
                 //FireBase
                 DataStore.shared.addUser(person: person)
             }
