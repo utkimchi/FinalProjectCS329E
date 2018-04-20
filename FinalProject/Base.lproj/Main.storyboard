@@ -91,6 +91,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecyclopsLOGO" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-Ff-cDZ">
                                 <rect key="frame" x="57" y="79" width="311" height="131"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="YBs-gs-iuB">
+                                <rect key="frame" x="1" y="56" width="374" height="611"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -121,6 +125,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nLl-dq-2zq"/>
                     <connections>
+                        <outlet property="bgImageView" destination="YBs-gs-iuB" id="txV-0Y-39D"/>
                         <outlet property="loginTextfield" destination="ful-0H-Zlk" id="kJ8-u3-fHB"/>
                         <outlet property="passwordTextField" destination="all-6B-Tiy" id="n2a-rB-P2g"/>
                     </connections>
@@ -999,6 +1004,7 @@
     </scenes>
     <resources>
         <image name="RecyclopsLOGO" width="200" height="200"/>
+        <image name="background1" width="736" height="1308"/>
         <image name="userprofile" width="550" height="548"/>
     </resources>
 </document>

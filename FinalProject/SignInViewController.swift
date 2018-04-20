@@ -15,10 +15,32 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
     @IBOutlet weak var loginTextfield: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     var alertController:UIAlertController? = nil
+    @IBOutlet weak var bgImageView: UIImageView!
     
     // Not called when alert is dismissed.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //Login
+        self.loginTextfield.delegate = self
+        self.passwordTextField.delegate = self
+        
+        //set the Google ui delegate
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        //store your login information
+        //GIDSignIn.sharedInstance().signInSilently()
+        
+        // additional setup
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background1.jpg")!)
+        self.view.sendSubview(toBack: bgImageView)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     //Keyobard
@@ -88,24 +110,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
             self.present(self.alertController!, animated: true, completion:nil)
         }
         
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //Login
-        self.loginTextfield.delegate = self
-        self.passwordTextField.delegate = self
-        
-        //set the Google ui delegate
-        GIDSignIn.sharedInstance().uiDelegate = self
-    
-        //store your login information
-        //GIDSignIn.sharedInstance().signInSilently()
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
