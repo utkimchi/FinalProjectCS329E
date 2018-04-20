@@ -9,18 +9,24 @@
 import UIKit
 import CoreData
 
-class RegistrationViewController: UIViewController, UITextFieldDelegate {
+class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMCheckBoxDelegate {
+    // outlets
     @IBOutlet weak var usernameTField: UITextField!
     @IBOutlet weak var passwordTField: UITextField!
     @IBOutlet weak var nameTField: UITextField!
     @IBOutlet weak var cityTField: UITextField!
     @IBOutlet weak var stateTField: UITextField!
-    @IBOutlet weak var sexTField: UITextField!
     @IBOutlet weak var ageTField: UITextField!
+    @IBOutlet weak var femaleCheckBox: BEMCheckBox!
+    @IBOutlet weak var maleCheckBox: BEMCheckBox!
+    @IBOutlet weak var successLabel: UILabel!
     
+    // alertcontroller
     var alertController:UIAlertController? = nil
     var entityExists = false
-    @IBOutlet weak var successLabel: UILabel!
+    
+    // string variable to set sex of user
+    var sex = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +38,33 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         self.nameTField.delegate = self
         self.cityTField.delegate = self
         self.stateTField.delegate = self
-        self.sexTField.delegate = self
         self.ageTField.delegate = self
+        femaleCheckBox.delegate = self
+        maleCheckBox.delegate = self
+        
+        // Configure checkboxes
+        femaleCheckBox.onAnimationType = .bounce
+        maleCheckBox.onAnimationType = .bounce
+        femaleCheckBox.onCheckColor = .magenta
+        maleCheckBox.onCheckColor = .blue
+        femaleCheckBox.offAnimationType = .fade
+        maleCheckBox.offAnimationType = .fade
     }
     
+    // delegate handler to handle checkbox taps
+    func didTap(_ checkBox: BEMCheckBox) {
+        if checkBox.tag == 1 {
+            sex = "Female"
+            maleCheckBox.on = false
+        }
+        else if checkBox.tag == 2 {
+            sex = "Male"
+            femaleCheckBox.on = false
+        }
+        else{
+            sex = ""
+        }
+    }
     //setting the screeentitle
     private func setScreenTitle() {
         self.title = "Create Account"
@@ -56,7 +85,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveUserInfo(_ sender: UIButton) {
         
         // Sends a pop-up alert if username or password field are empty
-        if usernameTField.text == "" || passwordTField.text == "" || nameTField.text == "" || stateTField.text == "" || cityTField.text == "" || sexTField.text == "" || ageTField.text == ""{
+        if usernameTField.text == "" || passwordTField.text == "" || nameTField.text == "" || stateTField.text == "" || cityTField.text == "" || sex == "" || ageTField.text == ""{
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
             
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
@@ -92,7 +121,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                     recycler.setValue(nameTField.text, forKey: "humanName")
                     recycler.setValue(cityTField.text, forKey: "city")
                     recycler.setValue(stateTField.text, forKey: "state")
-                    recycler.setValue(sexTField.text, forKey: "gender")
+                    recycler.setValue(sex, forKey: "gender")
                     recycler.setValue(ageTField.text, forKey: "age")
                     recycler.setValue(1, forKey: "backgroundColor")
                     entityExists = true
@@ -106,7 +135,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                     }
                     
                     successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
+                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
                     DataStore.shared.addUser(person: person)
                 }
             }
@@ -132,7 +161,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 recycler.setValue(nameTField.text, forKey: "humanName")
                 recycler.setValue(cityTField.text, forKey: "city")
                 recycler.setValue(stateTField.text, forKey: "state")
-                recycler.setValue(sexTField.text, forKey: "gender")
+                recycler.setValue(sex, forKey: "gender")
                 recycler.setValue(ageTField.text, forKey: "age")
                 recycler.setValue(1, forKey: "backgroundColor")
                 
@@ -147,7 +176,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sexTField.text!, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
+                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
                 //FireBase
                 DataStore.shared.addUser(person: person)
             }
