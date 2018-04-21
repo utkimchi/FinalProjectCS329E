@@ -164,6 +164,12 @@ class LandingPageViewController: UIViewController {
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
         }
+        else if segue.identifier == "badgeSegue"{
+            _ = segue.destination as? BadgesViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
     }
     
     //setting the screeentitle

@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ageValue: UILabel!
     @IBOutlet weak var cityValue: UILabel!
     @IBOutlet weak var genderValue: UILabel!
+    @IBOutlet weak var badgeViewOne: UIImageView!
     
     //background colors
     let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
@@ -85,6 +86,11 @@ class ProfileViewController: UIViewController {
         }
         if let profilegender = ownerInfo.value(forKey: "gender") as? String{
             genderValue.text = profilegender
+        }
+        let list = ownerInfo.value(forKey: "badges") as! [String]
+        print(list[0])
+        if (list[0] == "badge1"){
+            badgeViewOne.image = UIImage(named: "badge1")
         }
         
         //set background color

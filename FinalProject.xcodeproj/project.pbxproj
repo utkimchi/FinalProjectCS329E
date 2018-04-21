@@ -29,6 +29,7 @@
 		D7F274EB2061D17F00F3C901 /* FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F274EA2061D17F00F3C901 /* FinalProjectTests.swift */; };
 		D7F274F62061D17F00F3C901 /* FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F274F52061D17F00F3C901 /* FinalProjectUITests.swift */; };
 		E3C192AD94CE033B1FEA2609 /* Pods_FinalProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE6C2663BD22BD0BB7CF78A /* Pods_FinalProjectTests.framework */; };
+		F00FF403208BE78400881F72 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00FF402208BE78400881F72 /* BadgesViewController.swift */; };
 		F06686B720802AE500941CC3 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06686B620802AE500941CC3 /* AddFriendViewController.swift */; };
 		F0B9BBB52089825D0089C833 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B9BBAD2089825C0089C833 /* BEMAnimationManager.m */; };
 		F0B9BBB62089825D0089C833 /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B9BBAE2089825C0089C833 /* BEMCheckBox.m */; };
@@ -90,6 +91,7 @@
 		D7F274F12061D17F00F3C901 /* FinalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F274F52061D17F00F3C901 /* FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectUITests.swift; sourceTree = "<group>"; };
 		D7F274F72061D17F00F3C901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00FF402208BE78400881F72 /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		F06686B620802AE500941CC3 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		F0B9BBAD2089825C0089C833 /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
 		F0B9BBAE2089825C0089C833 /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				9C1763D02080545D00FFA9B7 /* SettingViewController.swift */,
 				9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */,
 				D7F274D92061D17F00F3C901 /* Main.storyboard */,
+				F00FF402208BE78400881F72 /* BadgesViewController.swift */,
 				D7F274DE2061D17F00F3C901 /* LaunchScreen.storyboard */,
 				D7F274DC2061D17F00F3C901 /* Assets.xcassets */,
 				D7F274E12061D17F00F3C901 /* Info.plist */,
@@ -499,6 +502,7 @@
 				F0B9BBB82089825D0089C833 /* BEMPathManager.m in Sources */,
 				F0B9BBB72089825D0089C833 /* BEMCheckBoxGroup.m in Sources */,
 				9C1763CF2080545200FFA9B7 /* ProfileViewController.swift in Sources */,
+				F00FF403208BE78400881F72 /* BadgesViewController.swift in Sources */,
 				D75AB009206C5E1000BF6EFD /* FinalProject.xcdatamodeld in Sources */,
 				D75AB00F206C5E2D00BF6EFD /* Recycler+CoreDataProperties.swift in Sources */,
 			);

@@ -32,5 +32,6 @@ extension Recycler {
     @NSManaged public var state: String
     @NSManaged public var humanName: String
     @NSManaged public var friendsList: [String]
+    @NSManaged public var badges: [String]
 
 }
