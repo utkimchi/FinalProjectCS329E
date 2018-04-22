@@ -19,6 +19,14 @@ class BadgesViewController: UIViewController {
     var ownerInfoArr = [NSManagedObject]()
     var ownerInfo = NSManagedObject()
     
+    // alert controller
+    var alertController:UIAlertController? = nil
+    
+    // draggedText variable to hold value of text being dragged
+    private var draggedText = ""
+    // list variable to edit user's badges
+    private var newBadges = [String]()
+    
     // data source for table view
     var tableViewData = [String]()
     
@@ -42,9 +50,8 @@ class BadgesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // Action handler for saveBadgesBtn
-    @IBAction func saveBadgesBtn(_ sender: Any) {
-        
+    
+    @IBAction func clearBtn(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
@@ -69,8 +76,21 @@ class BadgesViewController: UIViewController {
         
         ownerInfo = ownerInfoArr[0]
         
-        self.ownerInfo.setValue(["badge1"], forKey: "badges")
-        print("setvalue working")
+        // Delete all tableview content
+        newBadges = []
+        var count = 0
+        while count < tableViewData.count {
+            var destIndexPath: IndexPath
+            let section = tableView.numberOfSections - 1
+            let row = tableView.numberOfRows(inSection: section)
+            destIndexPath = IndexPath(row: row, section: section)
+            tableView.deleteRows(at: [destIndexPath], with: .automatic)
+            count = count + 1
+        }
+        tableViewData = []
+        
+        // set current badgelist to empty
+        ownerInfo.setValue(newBadges, forKey: "badges")
         
         // Commit the changes.
         do {
@@ -81,9 +101,8 @@ class BadgesViewController: UIViewController {
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-
     }
-
+    
 }
 
 extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
@@ -110,6 +129,7 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
         
         // 'string' is set to whatever text is being dragged
         if let string = textView.text(in: dragRequest.dragRange){
+            draggedText = string
             let itemProvider = NSItemProvider(object: string as NSString)
             return [UIDragItem(itemProvider: itemProvider)]
         }
@@ -123,29 +143,79 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
     // handles when dragged object is dropped
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
         
-        let destIndexPath:IndexPath
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
         
-        // sets the destinationIndexPath depending on where the dragged item is dropped
-        if let indexPath = coordinator.destinationIndexPath {
-            destIndexPath = indexPath
+        //
+        var fetchedResult: [NSManagedObject]? = nil
+        
+        do {
+            try fetchedResult = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResult {
+            ownerInfoArr = results
+        } else {
+            print("Could not fetch")
+        }
+        
+        ownerInfo = ownerInfoArr[0]
+            
+        // check to see if the user has too many badges
+        newBadges = ownerInfo.value(forKey: "badges") as! [String]
+        if (newBadges.count) >= 4{
+            self.alertController = UIAlertController(title: "Error", message: "You have too many badges!", preferredStyle: UIAlertControllerStyle.alert)
+                
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            }
+            self.alertController!.addAction(OKAction)
+            self.present(self.alertController!, animated: true, completion:nil)
         }
         else{
-            let section = tableView.numberOfSections - 1
-            let row = tableView.numberOfRows(inSection: section)
-            destIndexPath = IndexPath(row: row, section: section)
+            // Sends a pop-up alert if user doesn't meet badge requirements
+            if (ownerInfo.value(forKey: "plasticTotal") as! Int32) < 500 && draggedText == "Badge1"{
+                self.alertController = UIAlertController(title: "Error", message: "You do not meet the requirements for this badge", preferredStyle: UIAlertControllerStyle.alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+                }
+                self.alertController!.addAction(OKAction)
+                self.present(self.alertController!, animated: true, completion:nil)
+            }
+            else{
+                let destIndexPath:IndexPath
+                
+                // sets the destinationIndexPath depending on where the dragged item is dropped
+                if let indexPath = coordinator.destinationIndexPath {
+                    destIndexPath = indexPath
+                }
+                else{
+                    let section = tableView.numberOfSections - 1
+                    let row = tableView.numberOfRows(inSection: section)
+                    destIndexPath = IndexPath(row: row, section: section)
+                }
+                
+                // inserts the text set from the function above into the tableViewData
+                coordinator.session.loadObjects(ofClass: NSString.self)
+                {items in
+                    guard let stringsArray = items as? [String] else {return}
+                    
+                    self.tableViewData.insert(stringsArray.first!, at: destIndexPath.row)
+                    
+                    tableView.insertRows(at: [destIndexPath], with: .automatic)
+                    
+                }
+                
+                // set user's badge list to include new badge if user has met badge requirements
+                newBadges.insert(draggedText, at: 0)
+                ownerInfo.setValue(newBadges, forKey: "badges")
+            }
         }
-        
-        // inserts the text set from the function above into the tableViewData
-        coordinator.session.loadObjects(ofClass: NSString.self)
-        {items in
-            guard let stringsArray = items as? [String] else {return}
-            
-            self.tableViewData.insert(stringsArray.first!, at: destIndexPath.row)
-            
-            tableView.insertRows(at: [destIndexPath], with: .automatic)
-            
-        }
-        
     }
 }
 
