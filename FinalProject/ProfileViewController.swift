@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ageValue: UILabel!
     @IBOutlet weak var cityValue: UILabel!
     @IBOutlet weak var genderValue: UILabel!
+    @IBOutlet weak var profilePhoto: UIImageView!
     
     //background colors
     let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
@@ -24,6 +25,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         self.view.backgroundColor = colors[indes]
+        self.getImage(imageName:"profile.png")
         // Do any additional setup after loading the view.    
     }
     
@@ -93,10 +95,28 @@ class ProfileViewController: UIViewController {
         self.view.backgroundColor = colors[indes]
     }
     
+    //get profile photo
+    func getImage(imageName: String){
+        let fileManager = FileManager.default
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        if fileManager.fileExists(atPath: imagePath){
+            profilePhoto.image = UIImage(contentsOfFile: imagePath)
+        }else{
+            print("Panic! No Image!")
+        }
+    }
+    
     //make sure the back button displays correctly
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SettingPage"{
+            _ = segue.destination as? SettingViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
+        
+        if segue.identifier == "LocationPage"{
             _ = segue.destination as? SettingViewController
             let backItem = UIBarButtonItem()
             backItem.title = "Back"

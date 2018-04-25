@@ -194,6 +194,7 @@
 				D7A4D6EA207D7950001FA543 /* Person.swift */,
 				9C1763D02080545D00FFA9B7 /* SettingViewController.swift */,
 				9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */,
+				9C9D287B2091004800A6D2EF /* LocationViewController.swift */,
 				D7F274D92061D17F00F3C901 /* Main.storyboard */,
 				D7F274DE2061D17F00F3C901 /* LaunchScreen.storyboard */,
 				D7F274DC2061D17F00F3C901 /* Assets.xcassets */,
@@ -201,7 +202,6 @@
 				9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */,
 				D75AB007206C5E1000BF6EFD /* FinalProject.xcdatamodeld */,
 				9CF8560720869E280082D84D /* GoogleService-Info.plist */,
-				9C9D287B2091004800A6D2EF /* LocationViewController.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";

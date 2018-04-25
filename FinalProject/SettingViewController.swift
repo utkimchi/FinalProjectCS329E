@@ -29,9 +29,11 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    //Profile Photo change
     
+    var imagePickerController:UIImagePickerController!
     @IBOutlet var myImageView: UIImageView!
+    
+    //Profile Photo change
     @IBAction func photoChange(_ sender: UIButton) {
         let image = UIImagePickerController()
         image.delegate = self
@@ -43,6 +45,10 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         {
             //after it is complete, do this if needed
         }
+        
+        //after you choose photo you do this
+        self.saveImage(imageName: "profile.png")
+        print("photosave")
     }
     
     //when the user has picked its image
@@ -59,6 +65,39 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
+    //function to save profile images in documents directory
+    func saveImage(imageName: String){
+        //create an instance of the FileManager
+        let fileManager = FileManager.default
+        //get the image path
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        //to see what it looks like
+        print(imagePath)
+        //get the image we took with camera
+        let image = myImageView.image!
+        //get the PNG data for this image
+        let data = UIImagePNGRepresentation(image)
+        //store it in the document directory
+        fileManager.createFile(atPath: imagePath as String, contents: data, attributes: nil)
+        print("this ran")
+    }
+    
+    //button to save the photo to the profile
+    @IBAction func savePhoto(_ sender: UIButton) {
+        self.saveImage(imageName: "profile.png")
+        print("photosave")
+    }
+    
+    //get profile photo
+    func getImage(imageName: String){
+        let fileManager = FileManager.default
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        if fileManager.fileExists(atPath: imagePath){
+            myImageView.image = UIImage(contentsOfFile: imagePath)
+        }else{
+            print("Panic! No Image!")
+        }
+    }
     
     //background color change choosing    
     let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
@@ -195,6 +234,7 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         setScreenTitle()
+        self.getImage(imageName:"profile.png")
         // Do any additional setup after loading the view.
     }
 
