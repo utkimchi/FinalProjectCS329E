@@ -123,7 +123,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                     recycler.setValue(stateTField.text, forKey: "state")
                     recycler.setValue(sex, forKey: "gender")
                     recycler.setValue(ageTField.text, forKey: "age")
-                    recycler.setValue(1, forKey: "backgroundColor")
+                    recycler.setValue(0, forKey: "backgroundColor")
                     entityExists = true
                     do {
                         try managedContext.save()
@@ -135,7 +135,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                     }
                     
                     successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
+                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "0")
                     DataStore.shared.addUser(person: person)
                 }
             }
@@ -163,7 +163,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                 recycler.setValue(stateTField.text, forKey: "state")
                 recycler.setValue(sex, forKey: "gender")
                 recycler.setValue(ageTField.text, forKey: "age")
-                recycler.setValue(1, forKey: "backgroundColor")
+                recycler.setValue(0, forKey: "backgroundColor")
                 
                 // Commit the changes.
                 do {
@@ -176,7 +176,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                 }
                 
                 successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "1")
+                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "0")
                 //FireBase
                 DataStore.shared.addUser(person: person)
             }
