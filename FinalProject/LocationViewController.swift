@@ -16,61 +16,64 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UISea
     //display maps for current location and search location
     @IBOutlet weak var locationMap: MKMapView!
     
+    var alertController:UIAlertController? = nil
+    
     //search places icon on navigation bar
     @IBAction func searchMap(_ sender: Any) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         present(searchController, animated: true, completion: nil)
+        
     }
     
     //implement the search ability
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //ignore user
         UIApplication.shared.beginIgnoringInteractionEvents()
-        
+
         //activity indicator
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
-        
+
         self.view.addSubview(activityIndicator)
-        
+
         //Hide Search bar
         searchBar.resignFirstResponder()
         dismiss(animated: true, completion: nil)
-        
+
         //create the search request
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = searchBar.text
-        
+
         let activeSearch = MKLocalSearch(request: searchRequest)
-        
+
         //we'll be getting two variables in return
         activeSearch.start { (response, error) in
-            
+
             activityIndicator.stopAnimating()
             UIApplication.shared.endIgnoringInteractionEvents()
-            
+
             if response == nil {
                 print("Error")
             } else {
                 //when you actually have a result; also you want to remove annotation
                 let annotations = self.locationMap.annotations
                 self.locationMap.removeAnnotations(annotations)
-                
+
                 //getting data
                 let latitude = response?.boundingRegion.center.latitude
                 let longitude = response?.boundingRegion.center.longitude
-                
+
                 //create annotation
                 let annotation = MKPointAnnotation()
                 annotation.title = searchBar.text!
                 annotation.subtitle = "Friend's Location"
                 annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
                 self.locationMap.addAnnotation(annotation)
-                
+
                 //zooming in on annotation
                 let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
                 let span = MKCoordinateSpanMake(0.1, 0.1)
