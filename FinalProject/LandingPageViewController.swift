@@ -87,7 +87,7 @@ class LandingPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getOwner()
         DataStore.shared.loadFriends(ownerName: ownerName)
-        
+        DataStore.shared.updateGarbage()
         var totalRecycling: Int = 0
         
         // Set value labels to respective ownerInfo values

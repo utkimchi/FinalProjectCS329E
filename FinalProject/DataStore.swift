@@ -101,7 +101,8 @@ class DataStore {
                             let metalsTotal = person["metalsTotal"]
                             let paperTotal = person["paperTotal"]
                             let plasticTotal = person["plasticTotal"]
-                            let garbageTotal = person["garbageTotal"]
+                            let garbageTemp = person["garbageTotal"]
+                            let garbageTotal = "\(garbageTemp ?? 0)"
                             let password = "fakePlaceholder"
                             let friendsList = [""]
                             let city = person["city"]
@@ -147,6 +148,14 @@ class DataStore {
         ){ (error) in
             print(error.localizedDescription)
             }
+    }
+    
+    func updateGarbage() {
+        
+        getOwner()
+        //UpdateGarbage
+        ref.child("people").child(self.ownerName).child("garbageTotal").setValue(self.ownerInfo.value(forKey: "pureGarbageTotal"))
+        print(self.ownerInfo.value(forKey: "pureGarbageTotal"))
     }
 
     func addUser(person: Person)
