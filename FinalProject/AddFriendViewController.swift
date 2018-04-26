@@ -10,6 +10,12 @@ import UIKit
 
 class AddFriendViewController: UIViewController {
 
+    @IBOutlet weak var friendsUsernameTextField: UITextField!
+    @IBAction func addFriendButton(_ sender: Any) {
+        DataStore.shared.addFriend(friendsUsername: friendsUsernameTextField.text!)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setScreenTitle()

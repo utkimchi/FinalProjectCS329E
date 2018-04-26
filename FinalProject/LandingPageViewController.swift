@@ -73,16 +73,16 @@ class LandingPageViewController: UIViewController {
         
         // Sets the ownerInfoArr variable if fetchedResult has been created properly
         if let results = fetchedResult {
-            ownerInfoArr = results
+            self.ownerInfoArr = results
         } else {
             print("Could not fetch")
         }
         
         //Pulls the data from owner to Array
-        ownerInfo = ownerInfoArr[0]
+        self.ownerInfo = ownerInfoArr[0]
         
         // Sets the ownerName variable by pullling from the data in the ownerInfo variable
-        ownerName = (ownerInfo.value(forKey: "name") as! String)
+        self.ownerName = (ownerInfo.value(forKey: "name") as! String)
     }
     
     

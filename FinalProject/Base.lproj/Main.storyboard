@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gJN-Ux-njm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gJN-Ux-njm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -912,13 +912,46 @@
                     <view key="view" contentMode="scaleToFill" id="hYL-xT-3dg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WcJ-5r-0pU">
+                                <rect key="frame" x="16" y="190" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friend: Enter Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd6-l7-suV">
+                                <rect key="frame" x="79" y="161" width="216" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INW-0D-yeL">
+                                <rect key="frame" x="171" y="318" width="32" height="30"/>
+                                <state key="normal" title="Add!"/>
+                                <connections>
+                                    <action selector="addFriendButton:" destination="CFb-uy-qBe" eventType="touchUpInside" id="RTY-J0-86k"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WcJ-5r-0pU" firstAttribute="top" secondItem="5SW-ca-2Ro" secondAttribute="top" constant="126" id="0lo-m3-may"/>
+                            <constraint firstItem="WcJ-5r-0pU" firstAttribute="leading" secondItem="5SW-ca-2Ro" secondAttribute="leading" constant="16" id="KZ5-mV-UFa"/>
+                            <constraint firstItem="5SW-ca-2Ro" firstAttribute="trailing" secondItem="WcJ-5r-0pU" secondAttribute="trailing" constant="16" id="LC2-0S-trg"/>
+                            <constraint firstItem="INW-0D-yeL" firstAttribute="top" secondItem="5SW-ca-2Ro" secondAttribute="top" constant="254" id="Lix-0m-zMk"/>
+                            <constraint firstItem="qd6-l7-suV" firstAttribute="top" secondItem="5SW-ca-2Ro" secondAttribute="top" constant="97" id="PK8-Sm-V86"/>
+                            <constraint firstItem="INW-0D-yeL" firstAttribute="leading" secondItem="5SW-ca-2Ro" secondAttribute="leading" constant="171" id="Z6O-DY-T9N"/>
+                            <constraint firstItem="qd6-l7-suV" firstAttribute="leading" secondItem="5SW-ca-2Ro" secondAttribute="leading" constant="79" id="qYY-df-7G2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5SW-ca-2Ro"/>
                     </view>
+                    <connections>
+                        <outlet property="friendsUsernameTextField" destination="WcJ-5r-0pU" id="oe4-d2-C0g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6c-Sk-JME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2897" y="1943"/>
+            <point key="canvasLocation" x="2896.8000000000002" y="1942.5787106446778"/>
         </scene>
         <!--Item Selector View-->
         <scene sceneID="wZc-6e-AG2">

@@ -179,6 +179,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                 let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "0")
                 //FireBase
                 DataStore.shared.addUser(person: person)
+                
             }
         }
     }
