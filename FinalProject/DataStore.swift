@@ -129,8 +129,6 @@ class DataStore {
         
         getOwner()
         // define array of key/value pairs to store for this person.
-        var currentFriendList = ownerInfo.value(forKey: "friendsList") as! [String]
-        print("CurrentFriendList: \(currentFriendList)")
         var newFriendsList: [String] = []
         
         ref.child("people").child(self.ownerName).child("friendsList").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -144,14 +142,11 @@ class DataStore {
             print("FireBase Friend's List")
             print(newFriendsList)
             self.ref.child("people").child(self.ownerName).child("friendsList").setValue(newFriendsList)
+            self.ownerInfo.setValue(newFriendsList, forKey: "friendsList")
             }
         ){ (error) in
             print(error.localizedDescription)
             }
-        currentFriendList.append(friendsUsername)
-        print("AddingtoCoreDATA")
-        print(currentFriendList)
-        ownerInfo.setValue(currentFriendList, forKey: "friendsList")
     }
 
     func addUser(person: Person)

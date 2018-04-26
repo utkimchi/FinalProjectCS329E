@@ -49,8 +49,6 @@ class LandingPageViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         //FIREBASE
-        DataStore.shared.loadFriends(ownerName: ownerName)
-        print("or here")
     }
     
     func getOwner(){
@@ -88,6 +86,7 @@ class LandingPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getOwner()
+        DataStore.shared.loadFriends(ownerName: ownerName)
         
         var totalRecycling: Int = 0
         
