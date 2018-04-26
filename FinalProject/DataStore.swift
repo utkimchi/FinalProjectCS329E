@@ -136,12 +136,9 @@ class DataStore {
             let value = snapshot.value as! NSArray
                 for x in value{
                     let fName = x as! String
-                    print("Prior Firebase Friend \(fName)")
                     newFriendsList.append(fName)
                 }
             newFriendsList.append(friendsUsername)
-            print("FireBase Friend's List")
-            print(newFriendsList)
             self.ref.child("people").child(self.ownerName).child("friendsList").setValue(newFriendsList)
             self.ownerInfo.setValue(newFriendsList, forKey: "friendsList")
             }
@@ -155,7 +152,6 @@ class DataStore {
         getOwner()
         //UpdateGarbage
         ref.child("people").child(self.ownerName).child("garbageTotal").setValue(self.ownerInfo.value(forKey: "pureGarbageTotal"))
-        print(self.ownerInfo.value(forKey: "pureGarbageTotal"))
     }
 
     func addUser(person: Person)
