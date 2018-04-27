@@ -40,12 +40,6 @@ class BadgesViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         // Do any additional setup after loading the view.
-        textView.textDragDelegate = self
-        textViewTwo.textDragDelegate = self
-        textViewThree.textDragDelegate = self
-        textViewFour.textDragDelegate = self
-        textViewFive.textDragDelegate = self
-        textViewSix.textDragDelegate = self
         tableView.dropDelegate = self
         tableView.dataSource = self
         
@@ -131,11 +125,12 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
     func textDraggableView(_ textDraggableView: UIView & UITextDraggable, itemsForDrag dragRequest: UITextDragRequest) -> [UIDragItem] {
         print("drag working bug check")
         // 'string' is set to whatever text is being dragged
-        if var string = textView.text(in: dragRequest.dragRange){
+        if let string = textView.text(in: dragRequest.dragRange){
             draggedText = string
             let itemProvider = NSItemProvider(object: string as NSString)
             return [UIDragItem(itemProvider: itemProvider)]
         }
+            
         else
         {
             return []
@@ -186,13 +181,15 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
                     print(stringsArray.first!)
                     self.tableViewData.insert(stringsArray.first!, at: destIndexPath.row)
                     
+                    // set user's badge list to include new badge if user has met badge requirements
+                    self.newBadges.insert(stringsArray.first!, at: 0)
+                    self.ownerInfo.setValue(self.newBadges, forKey: "badges")
+                    
                     tableView.insertRows(at: [destIndexPath], with: .automatic)
                     
                 }
                 
-                // set user's badge list to include new badge if user has met badge requirements
-                newBadges.insert(draggedText, at: 0)
-                ownerInfo.setValue(newBadges, forKey: "badges")
+                
             }
         }
     }

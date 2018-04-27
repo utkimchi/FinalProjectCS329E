@@ -780,9 +780,49 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeF-Op-EXv">
-                                <rect key="frame" x="38" y="466" width="75" height="75"/>
+                                <rect key="frame" x="25" y="466" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOl-nw-G3O">
+                                <rect key="frame" x="108" y="466" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lok-p1-B9Z">
+                                <rect key="frame" x="274" y="466" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWo-hh-Pjc">
+                                <rect key="frame" x="191" y="466" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUx-0O-q41">
+                                <rect key="frame" x="41" y="549" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPt-AK-UXd">
+                                <rect key="frame" x="124" y="548" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5D-V3-zYM">
+                                <rect key="frame" x="207" y="547" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5q-Gv-iXF">
+                                <rect key="frame" x="290" y="546" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="eoO-7R-xcq" firstAttribute="leading" secondItem="RDX-bC-ZmU" secondAttribute="leading" id="2UZ-S6-jN6"/>
@@ -813,7 +853,14 @@
                     </view>
                     <connections>
                         <outlet property="ageValue" destination="voY-kZ-HXT" id="LgA-QI-SY5"/>
-                        <outlet property="badgeViewOne" destination="aeF-Op-EXv" id="161-lT-yKz"/>
+                        <outlet property="badgeLabelFour" destination="z5q-Gv-iXF" id="0n6-DJ-ORJ"/>
+                        <outlet property="badgeLabelOne" destination="BUx-0O-q41" id="WzN-B9-7vh"/>
+                        <outlet property="badgeLabelThree" destination="E5D-V3-zYM" id="88a-Mq-dmF"/>
+                        <outlet property="badgeLabelTwo" destination="ZPt-AK-UXd" id="GhO-Jb-9tz"/>
+                        <outlet property="badgeViewFour" destination="Lok-p1-B9Z" id="ywf-8t-YKY"/>
+                        <outlet property="badgeViewOne" destination="aeF-Op-EXv" id="ADi-zw-5rN"/>
+                        <outlet property="badgeViewThree" destination="hWo-hh-Pjc" id="F5c-b4-Vlr"/>
+                        <outlet property="badgeViewTwo" destination="kOl-nw-G3O" id="6Xj-hG-FPW"/>
                         <outlet property="cityValue" destination="0e4-lp-gjm" id="Pp0-HE-UK8"/>
                         <outlet property="genderValue" destination="zNy-XG-eH1" id="mP1-gq-uJC"/>
                         <outlet property="nameValue" destination="ZvB-x5-oB0" id="wQM-Ng-Z0C"/>
