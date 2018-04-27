@@ -46,6 +46,11 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
         friendsListViewController.delegate = self
         friendsListViewController.dataSource = self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        getOwner()
+        friendsListViewController.delegate = self
+        friendsListViewController.dataSource = self
+    }
 
     //setting the screeentitle
     private func setScreenTitle() {
@@ -57,6 +62,41 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UITabl
         // Dispose of any resources that can be recreated.
     }
     
+    var ownerInfoArr = [NSManagedObject]()
+    var ownerInfo = NSManagedObject()
+    var ownerName:String = ""
+    
+    func getOwner(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
+        
+        var fetchedResult: [NSManagedObject]? = nil
+        
+        // Sets fetchedResult NSManagedObject to user's Recycler entity
+        do {
+            try fetchedResult = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        // Sets the ownerInfoArr variable if fetchedResult has been created properly
+        if let results = fetchedResult {
+            self.ownerInfoArr = results
+        } else {
+            print("Could not fetch")
+        }
+        
+        //Pulls the data from owner to Array
+        self.ownerInfo = ownerInfoArr[0]
+        
+        // Sets the ownerName variable by pullling from the data in the ownerInfo variable
+        self.ownerName = (ownerInfo.value(forKey: "name") as! String)
+    }
 
     /*
     // MARK: - Navigation

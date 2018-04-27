@@ -31,6 +31,7 @@ class DataStore {
     }
 
     func count() -> Int {
+        print("DATASTORE COUNT: \(friends.count)")
         return friends.count
     }
 
@@ -58,22 +59,24 @@ class DataStore {
         
         // Sets the ownerInfoArr variable if fetchedResult has been created properly
         if let results = fetchedResult {
-            ownerInfoArr = results
+            self.ownerInfoArr = results
         } else {
             print("Could not fetch")
         }
         
         //Pulls the data from owner to Array
-        ownerInfo = ownerInfoArr[0]
+        self.ownerInfo = ownerInfoArr[0]
         
         // Sets the ownerName variable by pullling from the data in the ownerInfo variable
-        ownerName = (ownerInfo.value(forKey: "name") as! String)
+        self.ownerName = (ownerInfo.value(forKey: "name") as! String)
     }
     
     func loadFriends(ownerName:String) {
         // Start with an empty array.
         getOwner()
-        print(ownerName)
+        print("LoadFriend'sOwnerName")
+        print(self.ownerName)
+        print("Above is the Name")
         let currentFriendList = ownerInfo.value(forKey: "friendsList") as! [String]
         friends = [Person]()
         
@@ -90,6 +93,7 @@ class DataStore {
                         if p.key as! String == x{
                             print(p.key as! String)
                             print(x)
+                            print("The above two names are matched")
                             let username = p.key as! String
                             let person = p.value as! [String:Any]
                             let cardboardTotal = person["cardboardTotal"]
@@ -97,7 +101,8 @@ class DataStore {
                             let metalsTotal = person["metalsTotal"]
                             let paperTotal = person["paperTotal"]
                             let plasticTotal = person["plasticTotal"]
-                            let garbageTotal = person["garbageTotal"]
+                            let garbageTemp = person["garbageTotal"]
+                            let garbageTotal = "\(garbageTemp ?? 0)"
                             let password = "fakePlaceholder"
                             let friendsList = [""]
                             let city = person["city"]
@@ -109,6 +114,7 @@ class DataStore {
                             
                             let newFriend = Person(cardBoardTotal: cardboardTotal as! String, glassTotal: glassTotal as! String, metalsTotal: metalsTotal as! String!, paperTotal: paperTotal as! String!, garbageTotal: garbageTotal as! String!, plasticTotal: plasticTotal as! String!, username: username as String!, password: password , city: city as! String, state: state as! String!, gender: gender as! String, humanName: humanName as! String, age: age as! String, friendsList: friendsList , backgroundColor: backgroundColor as! String)
                             self.friends.append(newFriend)
+                            print(self.friends)
                         }
                         
                     }
@@ -120,17 +126,32 @@ class DataStore {
         }
     }
 
-    func addFriend(ownerName: String, friendsUsername: String) {
+    func addFriend(friendsUsername: String) {
+        
+        getOwner()
         // define array of key/value pairs to store for this person.
-        let key = self.ref.child("people").child(ownerName).key
-        let newFriend = ["friendsList" : friendsUsername]
-
-        let friendUpdates = ["/people/\(ownerName)/\(key)/": newFriend]
-
-        // Save to Firebase.
-        ref.updateChildValues(friendUpdates)
-        // Also save to our internal array, to stay in sync with what's in Firebase.
-        //friends.append(person)
+        var newFriendsList: [String] = []
+        
+        ref.child("people").child(self.ownerName).child("friendsList").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as! NSArray
+                for x in value{
+                    let fName = x as! String
+                    newFriendsList.append(fName)
+                }
+            newFriendsList.append(friendsUsername)
+            self.ref.child("people").child(self.ownerName).child("friendsList").setValue(newFriendsList)
+            self.ownerInfo.setValue(newFriendsList, forKey: "friendsList")
+            }
+        ){ (error) in
+            print(error.localizedDescription)
+            }
+    }
+    
+    func updateGarbage() {
+        
+        getOwner()
+        //UpdateGarbage
+        ref.child("people").child(self.ownerName).child("garbageTotal").setValue(self.ownerInfo.value(forKey: "pureGarbageTotal"))
     }
 
     func addUser(person: Person)
