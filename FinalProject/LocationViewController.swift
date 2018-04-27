@@ -13,6 +13,9 @@ import CoreData
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
 
+    let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
+    var indes = 0
+    
     //display maps for current location and search location
     @IBOutlet weak var locationMap: MKMapView!
     
