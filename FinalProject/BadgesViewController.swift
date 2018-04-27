@@ -14,6 +14,11 @@ class BadgesViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textViewTwo: UITextView!
+    @IBOutlet weak var textViewThree: UITextView!
+    @IBOutlet weak var textViewFour: UITextView!
+    @IBOutlet weak var textViewFive: UITextView!
+    @IBOutlet weak var textViewSix: UITextView!
     
     //load and update the core data - set info
     var ownerInfoArr = [NSManagedObject]()
@@ -36,27 +41,19 @@ class BadgesViewController: UIViewController {
         setScreenTitle()
         // Do any additional setup after loading the view.
         textView.textDragDelegate = self
+        textViewTwo.textDragDelegate = self
+        textViewThree.textDragDelegate = self
+        textViewFour.textDragDelegate = self
+        textViewFive.textDragDelegate = self
+        textViewSix.textDragDelegate = self
         tableView.dropDelegate = self
         tableView.dataSource = self
-    }
-    
-    // setting the screentitle
-    private func setScreenTitle() {
-        self.title = "Badges"
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    @IBAction func clearBtn(_ sender: Any) {
+        
+        // set ownerinfo data
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
         
-        //
         var fetchedResult: [NSManagedObject]? = nil
         
         do {
@@ -76,20 +73,26 @@ class BadgesViewController: UIViewController {
         
         ownerInfo = ownerInfoArr[0]
         
-        // Delete all tableview content
-        newBadges = []
-        var count = 0
-        while count < tableViewData.count {
-            var destIndexPath: IndexPath
-            let section = tableView.numberOfSections - 1
-            let row = tableView.numberOfRows(inSection: section)
-            destIndexPath = IndexPath(row: row, section: section)
-            tableView.deleteRows(at: [destIndexPath], with: .automatic)
-            count = count + 1
-        }
-        tableViewData = []
+        tableViewData = ownerInfo.value(forKey: "badges") as! [String]
+    }
+    
+    // setting the screentitle
+    private func setScreenTitle() {
+        self.title = "Badges"
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func clearBtn(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
         
         // set current badgelist to empty
+        newBadges = []
         ownerInfo.setValue(newBadges, forKey: "badges")
         
         // Commit the changes.
@@ -126,9 +129,34 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
     
     // sets the value of the dragged object
     func textDraggableView(_ textDraggableView: UIView & UITextDraggable, itemsForDrag dragRequest: UITextDragRequest) -> [UIDragItem] {
-        
+        print("drag working bug check")
         // 'string' is set to whatever text is being dragged
-        if let string = textView.text(in: dragRequest.dragRange){
+        if var string = textView.text(in: dragRequest.dragRange){
+            draggedText = string
+            let itemProvider = NSItemProvider(object: string as NSString)
+            return [UIDragItem(itemProvider: itemProvider)]
+        }
+        if var string = textViewTwo.text(in: dragRequest.dragRange){
+            draggedText = string
+            let itemProvider = NSItemProvider(object: string as NSString)
+            return [UIDragItem(itemProvider: itemProvider)]
+        }
+        else if let string = textViewThree.text(in: dragRequest.dragRange){
+            draggedText = string
+            let itemProvider = NSItemProvider(object: string as NSString)
+            return [UIDragItem(itemProvider: itemProvider)]
+        }
+        else if let string = textViewFour.text(in: dragRequest.dragRange){
+            draggedText = string
+            let itemProvider = NSItemProvider(object: string as NSString)
+            return [UIDragItem(itemProvider: itemProvider)]
+        }
+        else if let string = textViewFive.text(in: dragRequest.dragRange){
+            draggedText = string
+            let itemProvider = NSItemProvider(object: string as NSString)
+            return [UIDragItem(itemProvider: itemProvider)]
+        }
+        else if let string = textViewSix.text(in: dragRequest.dragRange){
             draggedText = string
             let itemProvider = NSItemProvider(object: string as NSString)
             return [UIDragItem(itemProvider: itemProvider)]
@@ -143,35 +171,11 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
     // handles when dragged object is dropped
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
-        
-        //
-        var fetchedResult: [NSManagedObject]? = nil
-        
-        do {
-            try fetchedResult = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        if let results = fetchedResult {
-            ownerInfoArr = results
-        } else {
-            print("Could not fetch")
-        }
-        
-        ownerInfo = ownerInfoArr[0]
-            
         // check to see if the user has too many badges
         newBadges = ownerInfo.value(forKey: "badges") as! [String]
         if (newBadges.count) >= 4{
             self.alertController = UIAlertController(title: "Error", message: "You have too many badges!", preferredStyle: UIAlertControllerStyle.alert)
-                
+            
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             }
             self.alertController!.addAction(OKAction)
