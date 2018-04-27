@@ -16,35 +16,22 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var cityValue: UILabel!
     @IBOutlet weak var genderValue: UILabel!
     @IBOutlet weak var profilePhoto: UIImageView!
+    @IBOutlet weak var badgeViewOne: UIImageView!
     
     //background colors
     let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
     var indes = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setScreenTitle()
-        self.view.backgroundColor = colors[indes]
-        // Do any additional setup after loading the view.    
-    }
-    
-    //setting the screeentitle
-    private func setScreenTitle() {
-        self.title = "Profile"
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     //User entities and name variable
     var ownerInfoArr = [NSManagedObject]()
     var ownerInfo = NSManagedObject()
     var ownerName:String = ""
     
-    //fetch the coreData for now
-    override func viewWillAppear(_ animated: Bool) {
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setScreenTitle()
+        self.view.backgroundColor = colors[indes]
+        // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
@@ -69,6 +56,19 @@ class ProfileViewController: UIViewController {
         
         //Pulls the data from owner to Array
         ownerInfo = ownerInfoArr[0]
+    }
+    
+    //setting the screeentitle
+    private func setScreenTitle() {
+        self.title = "Profile"
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //fetch the coreData for now
+    override func viewWillAppear(_ animated: Bool) {
         
         // Sets the ownerName variable by pullling from the data in the ownerInfo variable
         ownerName = (ownerInfo.value(forKey: "name") as! String)
@@ -90,28 +90,98 @@ class ProfileViewController: UIViewController {
         
         // set badge images
         let list = ownerInfo.value(forKey: "badges") as! [String]
-        if(list.count > 0){
-            if (list[0] == "badge1"){
-                badgeViewOne.image = UIImage(named: "badge1")
+        var count = 0
+        print(list[count])
+        while(count < list.count){
+            print(list[count])
+            switch list[count]{
+            case "Plastic Badge":
+                if(count == 0){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 1){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 2){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 3){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+            case "Metal Badge":
+                if(count == 0){
+                    badgeViewOne.image = UIImage(named: "smiley-face")
+                }
+                else if(count == 1){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 2){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 3){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }            case "Paper Badge":
+                    badgeViewOne.image = UIImage(named: "badge1")
+            case "Cardboard Badge":
+                if(count == 0){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 1){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 2){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 3){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+            case "Glass Badge":
+                if(count == 0){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 1){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 2){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 3){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+            case "Savior of the World":
+                if(count == 0){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 1){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 2){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 3){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+            default:
+                if(count == 0){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 1){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 2){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
+                else if(count == 3){
+                    badgeViewOne.image = UIImage(named: "badge1")
+                }
             }
+            count = count + 1;
         }
         
         //set background color
         let background = ownerInfo.value(forKey: "backgroundColor") as? Int
         indes = background!
         self.view.backgroundColor = colors[indes]
-        self.getImage(imageName:"profile.png")
-    }
-    
-    //get profile photo
-    func getImage(imageName: String){
-        let fileManager = FileManager.default
-        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
-        if fileManager.fileExists(atPath: imagePath){
-            profilePhoto.image = UIImage(contentsOfFile: imagePath)
-        }else{
-            print("Panic! No Image!")
-        }
     }
     
     //make sure the back button displays correctly
@@ -123,12 +193,7 @@ class ProfileViewController: UIViewController {
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
         }
-        
-        if segue.identifier == "LocationPage"{
-            _ = segue.destination as? SettingViewController
-            let backItem = UIBarButtonItem()
-            backItem.title = "Back"
-            navigationItem.backBarButtonItem = backItem
-        }
     }
 }
+
+

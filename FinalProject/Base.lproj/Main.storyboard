@@ -779,6 +779,10 @@
                                     <segue destination="Gwd-kk-wjQ" kind="show" identifier="LocationPage" id="alS-8Q-q2y"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeF-Op-EXv">
+                                <rect key="frame" x="38" y="466" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="eoO-7R-xcq" firstAttribute="leading" secondItem="RDX-bC-ZmU" secondAttribute="leading" id="2UZ-S6-jN6"/>
@@ -809,6 +813,7 @@
                     </view>
                     <connections>
                         <outlet property="ageValue" destination="voY-kZ-HXT" id="LgA-QI-SY5"/>
+                        <outlet property="badgeViewOne" destination="aeF-Op-EXv" id="161-lT-yKz"/>
                         <outlet property="cityValue" destination="0e4-lp-gjm" id="Pp0-HE-UK8"/>
                         <outlet property="genderValue" destination="zNy-XG-eH1" id="mP1-gq-uJC"/>
                         <outlet property="nameValue" destination="ZvB-x5-oB0" id="wQM-Ng-Z0C"/>
@@ -987,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oD9-UM-YcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="2873.6131934032987"/>
+            <point key="canvasLocation" x="1062" y="3002"/>
         </scene>
         <!--Add Friend View Controller-->
         <scene sceneID="G8W-Ox-mY1">

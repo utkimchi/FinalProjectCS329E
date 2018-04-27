@@ -136,31 +136,6 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
             let itemProvider = NSItemProvider(object: string as NSString)
             return [UIDragItem(itemProvider: itemProvider)]
         }
-        if var string = textViewTwo.text(in: dragRequest.dragRange){
-            draggedText = string
-            let itemProvider = NSItemProvider(object: string as NSString)
-            return [UIDragItem(itemProvider: itemProvider)]
-        }
-        else if let string = textViewThree.text(in: dragRequest.dragRange){
-            draggedText = string
-            let itemProvider = NSItemProvider(object: string as NSString)
-            return [UIDragItem(itemProvider: itemProvider)]
-        }
-        else if let string = textViewFour.text(in: dragRequest.dragRange){
-            draggedText = string
-            let itemProvider = NSItemProvider(object: string as NSString)
-            return [UIDragItem(itemProvider: itemProvider)]
-        }
-        else if let string = textViewFive.text(in: dragRequest.dragRange){
-            draggedText = string
-            let itemProvider = NSItemProvider(object: string as NSString)
-            return [UIDragItem(itemProvider: itemProvider)]
-        }
-        else if let string = textViewSix.text(in: dragRequest.dragRange){
-            draggedText = string
-            let itemProvider = NSItemProvider(object: string as NSString)
-            return [UIDragItem(itemProvider: itemProvider)]
-        }
         else
         {
             return []
@@ -208,7 +183,7 @@ extension BadgesViewController:UITextDragDelegate, UITableViewDropDelegate{
                 coordinator.session.loadObjects(ofClass: NSString.self)
                 {items in
                     guard let stringsArray = items as? [String] else {return}
-                    
+                    print(stringsArray.first!)
                     self.tableViewData.insert(stringsArray.first!, at: destIndexPath.row)
                     
                     tableView.insertRows(at: [destIndexPath], with: .automatic)
