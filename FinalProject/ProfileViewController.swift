@@ -25,7 +25,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         self.view.backgroundColor = colors[indes]
-        self.getImage(imageName:"profile.png")
         // Do any additional setup after loading the view.    
     }
     
@@ -93,6 +92,7 @@ class ProfileViewController: UIViewController {
         let background = ownerInfo.value(forKey: "backgroundColor") as? Int
         indes = background!
         self.view.backgroundColor = colors[indes]
+        self.getImage(imageName:"profile.png")
     }
     
     //get profile photo
