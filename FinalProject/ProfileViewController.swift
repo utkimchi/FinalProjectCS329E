@@ -99,92 +99,82 @@ class ProfileViewController: UIViewController {
         let list = ownerInfo.value(forKey: "badges") as! [String]
         var count = 0
         if(list.count > 0){
-        print(list[count])
-        while(count < list.count){
-                print(list[count])
-                switch list[count]{
-                case "Plastic Badge":
-                    if(count == 0){
-                        badgeViewOne.image = UIImage(named: "badge1")
+            print(list[count])
+            while(count < list.count){
+                    switch list[count]{
+                    case "Plastic Badge":
+                        if(count == 0){
+                            badgeViewOne.image = UIImage(named: "plasticbadge")
+                            badgeLabelOne.text = "Plastic Badge"
+                        }
+                        else if(count == 1){
+                            badgeViewTwo.image = UIImage(named: "plasticbadge")
+                            badgeLabelTwo.text = "Plastic Badge"
+                        }
+                        else if(count == 2){
+                            badgeViewThree.image = UIImage(named: "plasticbadge")
+                            badgeLabelThree.text = "Plastic Badge"
+                        }
+                        else if(count == 3){
+                            badgeViewFour.image = UIImage(named: "plasticbadge")
+                            badgeLabelFour.text = "Plastic Badge"
+                        }
+                    case "Metal Badge":
+                        if(count == 0){
+                            badgeViewOne.image = UIImage(named: "metalbadge")
+                            badgeLabelOne.text = "Metal Badge"
+                        }
+                        else if(count == 1){
+                            badgeViewTwo.image = UIImage(named: "metalbadge")
+                            badgeLabelTwo.text = "Metal Badge"
+                        }
+                        else if(count == 2){
+                            badgeViewThree.image = UIImage(named: "metalbadge")
+                            badgeLabelThree.text = "Metal Badge"
+                        }
+                        else if(count == 3){
+                            badgeViewFour.image = UIImage(named: "metalbadge")
+                            badgeLabelFour.text = "Metal Badge"
+                        }
+                    case "Cardboard Badge":
+                        if(count == 0){
+                            badgeViewOne.image = UIImage(named: "cardboardbadge")
+                            badgeLabelOne.text = "Cardboard Badge"
+                        }
+                        else if(count == 1){
+                            badgeViewTwo.image = UIImage(named: "cardboardbadge")
+                            badgeLabelTwo.text = "Cardboard Badge"
+                        }
+                        else if(count == 2){
+                            badgeViewThree.image = UIImage(named: "cardboardbadge")
+                            badgeLabelThree.text = "Cardboard Badge"
+                        }
+                        else if(count == 3){
+                            badgeViewFour.image = UIImage(named: "cardboardbadge")
+                            badgeLabelFour.text = "Cardboard Badge"
+                        }
+                    case "Glass Badge":
+                        if(count == 0){
+                            badgeViewOne.image = UIImage(named: "glassbadge")
+                            badgeLabelOne.text = "Glass Badge"
+                        }
+                        else if(count == 1){
+                            badgeViewTwo.image = UIImage(named: "glassbadge")
+                            badgeLabelTwo.text = "Glass Badge"
+                        }
+                        else if(count == 2){
+                            badgeViewThree.image = UIImage(named: "glassbadge")
+                            badgeLabelThree.text = "Glass Badge"
+                        }
+                        else if(count == 3){
+                            badgeViewFour.image = UIImage(named: "glassbadge")
+                            badgeLabelFour.text = "Glass Badge"
+                        }
+                    default:
+                        badgeLabelTwo.text = "You have no badges right now :("
                     }
-                    else if(count == 1){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 2){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 3){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                case "Metal Badge":
-                    if(count == 0){
-                        badgeViewOne.image = UIImage(named: "smiley-face")
-                    }
-                    else if(count == 1){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 2){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 3){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }            case "Paper Badge":
-                        badgeViewOne.image = UIImage(named: "badge1")
-                case "Cardboard Badge":
-                    if(count == 0){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 1){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 2){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 3){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                case "Glass Badge":
-                    if(count == 0){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 1){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 2){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 3){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                case "Savior of the World":
-                    if(count == 0){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 1){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 2){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 3){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                default:
-                    if(count == 0){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 1){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 2){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
-                    else if(count == 3){
-                        badgeViewOne.image = UIImage(named: "badge1")
-                    }
+                    count = count + 1;
                 }
-                count = count + 1;
-            }
         }
         
         //set background color
