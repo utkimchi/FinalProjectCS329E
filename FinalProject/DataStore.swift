@@ -112,7 +112,7 @@ class DataStore {
                             let age = person["age"]
                             let backgroundColor = person["backgroundColor"]
                             
-                            let newFriend = Person(cardBoardTotal: cardboardTotal as! String, glassTotal: glassTotal as! String, metalsTotal: metalsTotal as! String!, paperTotal: paperTotal as! String!, garbageTotal: garbageTotal as! String!, plasticTotal: plasticTotal as! String!, username: username as String!, password: password , city: city as! String, state: state as! String!, gender: gender as! String, humanName: humanName as! String, age: age as! String, friendsList: friendsList , backgroundColor: backgroundColor as! String)
+                            let newFriend = Person(cardBoardTotal: cardboardTotal as! String, glassTotal: glassTotal as! String, metalsTotal: metalsTotal as! String!, paperTotal: paperTotal as! String!, garbageTotal: garbageTotal as! String!, plasticTotal: plasticTotal as! String!, username: username as String!, password: password , city: city as! String, state: state as! String!, gender: gender as! String, humanName: humanName as! String, age: age as! String, friendsList: friendsList , backgroundColor: backgroundColor as! String, badges: [])
                             self.friends.append(newFriend)
                             print(self.friends)
                         }

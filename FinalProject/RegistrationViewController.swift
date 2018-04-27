@@ -23,6 +23,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
     
     // alertcontroller
     var alertController:UIAlertController? = nil
+    
     var entityExists = false
     
     // string variable to set sex of user
@@ -65,6 +66,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
             sex = ""
         }
     }
+    
     //setting the screeentitle
     private func setScreenTitle() {
         self.title = "Create Account"

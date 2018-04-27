@@ -88,6 +88,14 @@ class ProfileViewController: UIViewController {
             genderValue.text = profilegender
         }
         
+        // set badge images
+        let list = ownerInfo.value(forKey: "badges") as! [String]
+        if(list.count > 0){
+            if (list[0] == "badge1"){
+                badgeViewOne.image = UIImage(named: "badge1")
+            }
+        }
+        
         //set background color
         let background = ownerInfo.value(forKey: "backgroundColor") as? Int
         indes = background!

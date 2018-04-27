@@ -205,7 +205,7 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         //Trash
         var totalGarbage:Int = ownerInfo.value(forKey: "pureGarbageTotal") as! Int
         
-        // Set the attribute values
+        // Set the attribute values depending on the streamType value
         switch streamType {
         case "Plastic":
             totalTrash = ownerInfo.value(forKey: "plasticTotal") as! Int
@@ -249,7 +249,7 @@ class ItemSelectorView: UIViewController,UIPickerViewDataSource,UIPickerViewDele
         }
     }
     
-    //setting the screeentitle
+    //setting the screentitle
     private func setScreenTitle() {
         self.title = "Add"
     }
