@@ -87,7 +87,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
     @IBAction func saveUserInfo(_ sender: UIButton) {
         
         // Sends a pop-up alert if username or password field are empty
-        if usernameTField.text == "" || passwordTField.text == "" || nameTField.text == "" || stateTField.text == "" || cityTField.text == "" || ageTField.text == ""{
+        if usernameTField.text == "" || passwordTField.text == "" || nameTField.text == "" || stateTField.text == "" || cityTField.text == "" || ageTField.text == "" || femaleCheckBox == nil  && maleCheckBox == nil {
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
             
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
