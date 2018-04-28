@@ -15,7 +15,6 @@ class AddFriendViewController: UIViewController {
         DataStore.shared.addFriend(friendsUsername: friendsUsernameTextField.text!)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setScreenTitle()

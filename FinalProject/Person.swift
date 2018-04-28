@@ -26,8 +26,9 @@ class Person {
     var backgroundColor : String
     var badges = [String]()
     var friendsList = [String]()
+    var photo: String
     
-    init(cardBoardTotal: String, glassTotal: String, metalsTotal: String, paperTotal: String, garbageTotal: String, plasticTotal: String, username: String, password: String, city: String, state: String, gender: String, humanName: String, age: String, friendsList : [String], backgroundColor: String, badges: [String]) {
+    init(cardBoardTotal: String, glassTotal: String, metalsTotal: String, paperTotal: String, garbageTotal: String, plasticTotal: String, username: String, password: String, city: String, state: String, gender: String, humanName: String, age: String, friendsList : [String], backgroundColor: String, badges: [String], photo: String) {
         self.cardBoardTotal = cardBoardTotal
         self.glassTotal = glassTotal
         self.metalsTotal = metalsTotal
@@ -44,6 +45,7 @@ class Person {
         self.age = age
         self.backgroundColor = backgroundColor
         self.badges = badges
+        self.photo = photo
     }
 }
 

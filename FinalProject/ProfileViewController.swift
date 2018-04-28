@@ -176,17 +176,34 @@ class ProfileViewController: UIViewController {
                     count = count + 1;
                 }
         }
-        
-        //set background color
+        let humanName = (ownerInfo.value(forKey: "name") as! String)
         let background = ownerInfo.value(forKey: "backgroundColor") as? Int
         indes = background!
         self.view.backgroundColor = colors[indes]
+        self.getImage(imageName:humanName+"profile.png")
+    }
+    
+    //get profile photo
+    func getImage(imageName: String){
+        let fileManager = FileManager.default
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        if fileManager.fileExists(atPath: imagePath){
+            profilePhoto.image = UIImage(contentsOfFile: imagePath)
+        }else{
+            print("Panic! No Image!")
+        }
     }
     
     //make sure the back button displays correctly
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SettingPage"{
+            _ = segue.destination as? SettingViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }        
+        if segue.identifier == "LocationPage"{
             _ = segue.destination as? SettingViewController
             let backItem = UIBarButtonItem()
             backItem.title = "Back"

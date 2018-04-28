@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Recycler {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Recycler> {
@@ -33,5 +32,6 @@ extension Recycler {
     @NSManaged public var humanName: String
     @NSManaged public var friendsList: [String]
     @NSManaged public var badges: [String]
+    @NSManaged public var photo: String
 
 }

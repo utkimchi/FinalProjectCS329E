@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 import CoreData
 
-
 class DataStore {
 
     // Instantiate the singleton object.
@@ -111,12 +110,11 @@ class DataStore {
                             let humanName = person["humanName"]
                             let age = person["age"]
                             let backgroundColor = person["backgroundColor"]
-                            
-                            let newFriend = Person(cardBoardTotal: cardboardTotal as! String, glassTotal: glassTotal as! String, metalsTotal: metalsTotal as! String!, paperTotal: paperTotal as! String!, garbageTotal: garbageTotal as! String!, plasticTotal: plasticTotal as! String!, username: username as String!, password: password , city: city as! String, state: state as! String!, gender: gender as! String, humanName: humanName as! String, age: age as! String, friendsList: friendsList , backgroundColor: backgroundColor as! String, badges: [])
+                            let photo = person["photo"]
+                            let newFriend = Person(cardBoardTotal: cardboardTotal as! String, glassTotal: glassTotal as! String, metalsTotal: metalsTotal as! String!, paperTotal: paperTotal as! String!, garbageTotal: garbageTotal as! String!, plasticTotal: plasticTotal as! String!, username: username as String!, password: password , city: city as! String, state: state as! String!, gender: gender as! String, humanName: humanName as! String, age: age as! String, friendsList: friendsList , backgroundColor: backgroundColor as! String, badges: [],photo: photo as! String!)
                             self.friends.append(newFriend)
                             print(self.friends)
                         }
-                        
                     }
                 }
             }
@@ -170,9 +168,10 @@ class DataStore {
             "gender": person.gender,
             "humanName": person.humanName,
             "age": person.age,
-            "backgroundColor": person.backgroundColor
+            "backgroundColor": person.backgroundColor,
+            "photo": person.photo
             ] as [String : Any]
-
+        
         self.ref.child("people").child(person.username).setValue(userRecord)
     }
 }

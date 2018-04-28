@@ -10,25 +10,25 @@ import UIKit
 import CoreData
 
 class SettingViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
+    var humanName = "none"
+    
     @IBOutlet weak var passwordvalue: UITextField!
     @IBOutlet weak var namevalue: UITextField!
     @IBOutlet weak var cityvalue: UITextField!
     @IBOutlet weak var statevalue: UITextField!
-    @IBOutlet weak var humanNameSetting: UILabel!
     var alertController:UIAlertController? = nil
     
     //Notification button
     @IBOutlet weak var notification: UILabel!
     @IBAction func notificationswitch(_ sender: UISwitch) {
         
-    if (sender.isOn == true) {
+        if (sender.isOn == true) {
             notification.text = "On"
         } else {
             notification.text = "Off"
         }
     }
-    
     
     var imagePickerController:UIImagePickerController!
     @IBOutlet var myImageView: UIImageView!
@@ -45,10 +45,6 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         {
             //after it is complete, do this if needed
         }
-        
-        //after you choose photo you do this
-        self.saveImage(imageName: "profile.png")
-        print("photosave")
     }
     
     //when the user has picked its image
@@ -57,7 +53,7 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         //want to try to convert it into a UIImage
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             myImageView.image = image
-        //if there's an error loading the photo
+            //if there's an error loading the photo
         } else {
             //Error Message
             print("Not working")
@@ -84,7 +80,8 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
     
     //button to save the photo to the profile
     @IBAction func savePhoto(_ sender: UIButton) {
-        self.saveImage(imageName: "profile.png")
+        print(humanName+"profile.png")
+        self.saveImage(imageName: humanName+"profile.png")
         print("photosave")
     }
     
@@ -99,7 +96,7 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    //background color change choosing    
+    //background color change choosing
     let colors = [UIColor.white, UIColor(red: 255/255, green: 253/255, blue: 198/255, alpha: 1),  UIColor(red: 255/255, green: 219/255, blue: 207/255, alpha: 1),  UIColor(red: 247/255, green: 220/255, blue: 255/255, alpha: 1), UIColor(red: 218/255, green: 227/255, blue: 255/255, alpha: 1), UIColor(red: 196/255, green: 255/255, blue: 194/255, alpha: 1), UIColor.lightGray]
     var indes = 0
     
@@ -129,7 +126,7 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
             let nserror = error as NSError
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
-        }        
+        }
     }
     
     //set up the submit button
@@ -143,8 +140,8 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
             self.alertController!.addAction(OKAction)
             
             self.present(self.alertController!, animated: true, completion:nil)
-        
-        //if the boxes are all filled
+            
+            //if the boxes are all filled
         } else {
             self.alertController = UIAlertController(title: "Update Information", message: "You are about to make changes to your profile", preferredStyle: UIAlertControllerStyle.actionSheet)
             
@@ -195,7 +192,6 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
         
-        //
         var fetchedResult: [NSManagedObject]? = nil
         
         do {
@@ -225,19 +221,42 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         cityvalue.text = dummyCity
         let dummyState = (ownerInfo.value(forKey: "state") as! String)
         statevalue.text = dummyState
-        
         let background = ownerInfo.value(forKey: "backgroundColor") as? Int
         indes = background!
+        self.humanName = (ownerInfo.value(forKey: "name") as! String)
         self.view.backgroundColor = colors[indes]
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setScreenTitle()
-        self.getImage(imageName:"profile.png")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
+        var fetchedResult: [NSManagedObject]? = nil
+        do {
+            try fetchedResult = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResult {
+            ownerInfoArr = results
+        } else {
+            print("Could not fetch")
+        }
+        
+        ownerInfo = ownerInfoArr[0]
+        self.humanName = (ownerInfo.value(forKey: "name") as! String)
+        print(self.humanName)
+        self.getImage(imageName:self.humanName+"profile.png")
         // Do any additional setup after loading the view.
     }
-
+    
     //setting the screeentitle
     private func setScreenTitle() {
         self.title = "Settings"

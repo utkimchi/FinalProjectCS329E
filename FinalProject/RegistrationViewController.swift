@@ -87,7 +87,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
     @IBAction func saveUserInfo(_ sender: UIButton) {
         
         // Sends a pop-up alert if username or password field are empty
-        if usernameTField.text == "" || passwordTField.text == "" || nameTField.text == "" || stateTField.text == "" || cityTField.text == "" || sex == "" || ageTField.text == ""{
+        if usernameTField.text == "" || passwordTField.text == "" || nameTField.text == "" || stateTField.text == "" || cityTField.text == "" || ageTField.text == ""{
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
             
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
@@ -127,6 +127,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                     recycler.setValue(ageTField.text, forKey: "age")
                     recycler.setValue(0, forKey: "backgroundColor")
                     recycler.setValue([""], forKey: "badges")
+                    recycler.setValue("photo", forKey: "photo")
                     entityExists = true
                     do {
                         try managedContext.save()
@@ -138,7 +139,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                     }
                     
                     successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "0", badges: [""])
+                    let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "0", badges: [""], photo: "photo")
                     DataStore.shared.addUser(person: person)
                 }
             }
@@ -168,6 +169,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                 recycler.setValue(ageTField.text, forKey: "age")
                 recycler.setValue(0, forKey: "backgroundColor")
                 recycler.setValue([""], forKey: "badges")
+                recycler.setValue("photo", forKey: "photo")
                 
                 // Commit the changes.
                 do {
@@ -180,7 +182,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, BEMChec
                 }
                 
                 successLabel.text = ("Welcome \(recycler.value(forKey: "humanName") as! String)!")
-                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "0", badges: [""])
+                let person = Person(cardBoardTotal: "0", glassTotal: "0", metalsTotal: "0", paperTotal: "0", garbageTotal: "0", plasticTotal: "0", username: usernameTField.text!, password: passwordTField.text!, city: cityTField.text!, state: stateTField.text!, gender: sex, humanName: nameTField.text!, age: ageTField.text!, friendsList: ["Recycler"], backgroundColor: "0", badges: [""], photo: "photo")
                 //FireBase
                 DataStore.shared.addUser(person: person)
                 
