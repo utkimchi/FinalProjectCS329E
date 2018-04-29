@@ -477,6 +477,22 @@
                                     <segue destination="5tU-Yu-kgp" kind="show" identifier="badgeSegue" id="NT7-FA-xdK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2d-0c-VTx">
+                                <rect key="frame" x="285" y="64" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Music"/>
+                                <connections>
+                                    <action selector="playMusic:" destination="Jtx-EV-3wH" eventType="touchUpInside" id="2KT-iz-LZR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eft-VN-AiH">
+                                <rect key="frame" x="282" y="88" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop Music"/>
+                                <connections>
+                                    <action selector="stopMusic:" destination="Jtx-EV-3wH" eventType="touchUpInside" id="OfJ-iQ-RX8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

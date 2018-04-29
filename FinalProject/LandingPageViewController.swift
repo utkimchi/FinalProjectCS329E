@@ -8,8 +8,25 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class LandingPageViewController: UIViewController {
+    
+    var audioPlayer = AVAudioPlayer()
+    
+    //start music
+    @IBAction func playMusic(_ sender: Any) {
+        audioPlayer.play()
+    }
+    
+    //stop music
+    @IBAction func stopMusic(_ sender: Any) {
+        if audioPlayer.isPlaying{
+            audioPlayer.pause()
+        } else {
+            //do nothing
+        }
+    }
     
     // Labels
     @IBOutlet weak var homeTitle: UILabel!
@@ -49,6 +66,23 @@ class LandingPageViewController: UIViewController {
         super.viewDidLoad()
         setScreenTitle()
         //FIREBASE
+        
+        //load background music
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Forest2", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+            
+            var audioSession = AVAudioSession.sharedInstance()
+            do {
+                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            } catch {
+                print(error)
+            }
+            
+        } catch {
+            //debug error
+            print(error)
+        }
     }
     
     func getOwner(){

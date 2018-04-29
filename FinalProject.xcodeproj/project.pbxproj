@@ -10,6 +10,7 @@
 		5B987EBD0C209FCA3F305293 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E75E35D3AC89FC2112737EC /* Pods_FinalProject.framework */; };
 		9C1763CF2080545200FFA9B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */; };
 		9C1763D12080545D00FFA9B7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763D02080545D00FFA9B7 /* SettingViewController.swift */; };
+		9C22E5AF20954174009BC24A /* Forest2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C22E5AE20954174009BC24A /* Forest2.mp3 */; };
 		9C5AE8DD206B470000DA1C40 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */; };
 		9C9D287C2091004800A6D2EF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D287B2091004800A6D2EF /* LocationViewController.swift */; };
 		9CF8560820869E280082D84D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF8560720869E280082D84D /* GoogleService-Info.plist */; };
@@ -63,6 +64,7 @@
 		8E75E35D3AC89FC2112737EC /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C1763D02080545D00FFA9B7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		9C22E5AE20954174009BC24A /* Forest2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Forest2.mp3; path = ../../../../Downloads/Forest2.mp3; sourceTree = "<group>"; };
 		9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinalProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		9C5AE8E4206B688E00DA1C40 /* FinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinalProject.entitlements; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9C22E5AA209540F7009BC24A /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				9C22E5AE20954174009BC24A /* Forest2.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		B09C937DF268E58D6C6B1870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 				D7F274DE2061D17F00F3C901 /* LaunchScreen.storyboard */,
 				D7F274DC2061D17F00F3C901 /* Assets.xcassets */,
 				D7F274E12061D17F00F3C901 /* Info.plist */,
+				9C22E5AA209540F7009BC24A /* Music */,
 				9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */,
 				D75AB007206C5E1000BF6EFD /* FinalProject.xcdatamodeld */,
 				9CF8560720869E280082D84D /* GoogleService-Info.plist */,
@@ -318,6 +329,9 @@
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -360,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C22E5AF20954174009BC24A /* Forest2.mp3 in Resources */,
 				D7F274E02061D17F00F3C901 /* LaunchScreen.storyboard in Resources */,
 				9CF8560820869E280082D84D /* GoogleService-Info.plist in Resources */,
 				D7F274DD2061D17F00F3C901 /* Assets.xcassets in Resources */,

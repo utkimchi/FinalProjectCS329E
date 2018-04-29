@@ -30,12 +30,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDe
         
         //set the Google ui delegate
         GIDSignIn.sharedInstance().uiDelegate = self
-        
-        //store your login information
-        //GIDSignIn.sharedInstance().signInSilently()
-        
-        // additional setup
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background1.jpg")!)
         self.view.sendSubview(toBack: bgImageView)
     }
     
