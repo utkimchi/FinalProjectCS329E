@@ -10,12 +10,12 @@
 		5B987EBD0C209FCA3F305293 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E75E35D3AC89FC2112737EC /* Pods_FinalProject.framework */; };
 		9C1763CF2080545200FFA9B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */; };
 		9C1763D12080545D00FFA9B7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1763D02080545D00FFA9B7 /* SettingViewController.swift */; };
-		9C22E5AF20954174009BC24A /* Forest2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9C22E5AE20954174009BC24A /* Forest2.mp3 */; };
 		9C5AE8DD206B470000DA1C40 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */; };
 		9C9D287C2091004800A6D2EF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D287B2091004800A6D2EF /* LocationViewController.swift */; };
 		9CF8560820869E280082D84D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF8560720869E280082D84D /* GoogleService-Info.plist */; };
 		B0E735FBE86A4A1EEA972E89 /* Pods_FinalProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A32DB06410B0FD910A96B /* Pods_FinalProjectUITests.framework */; };
 		D70CEDD22074267B00358E81 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CEDD12074267B00358E81 /* RegistrationViewController.swift */; };
+		D71E6EC42097BBA9009E0EF6 /* Forest2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D71E6EC32097BBA9009E0EF6 /* Forest2.mp3 */; };
 		D74F7758207D660200A8F02B /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74F7757207D660200A8F02B /* LandingPageViewController.swift */; };
 		D74F775A207D69EA00A8F02B /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74F7759207D69EA00A8F02B /* FriendsListViewController.swift */; };
 		D75AB009206C5E1000BF6EFD /* FinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D75AB007206C5E1000BF6EFD /* FinalProject.xcdatamodeld */; };
@@ -64,7 +64,6 @@
 		8E75E35D3AC89FC2112737EC /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1763CE2080545200FFA9B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C1763D02080545D00FFA9B7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		9C22E5AE20954174009BC24A /* Forest2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Forest2.mp3; path = ../../../../Downloads/Forest2.mp3; sourceTree = "<group>"; };
 		9C5AE8DC206B470000DA1C40 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9C5AE8E0206B4A5C00DA1C40 /* FinalProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinalProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		9C5AE8E4206B688E00DA1C40 /* FinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinalProject.entitlements; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		BD66CAEA9861FD9D62F1376E /* Pods-FinalProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProjectUITests/Pods-FinalProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D12214C935155B43F3EDA90D /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		D70CEDD12074267B00358E81 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		D71E6EC32097BBA9009E0EF6 /* Forest2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Forest2.mp3; path = ../../../../Downloads/Forest2.mp3; sourceTree = "<group>"; };
 		D74F7757207D660200A8F02B /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D74F7759207D69EA00A8F02B /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		D75AB008206C5E1000BF6EFD /* FinalProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinalProject.xcdatamodel; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		9C22E5AA209540F7009BC24A /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				9C22E5AE20954174009BC24A /* Forest2.mp3 */,
+				D71E6EC32097BBA9009E0EF6 /* Forest2.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -374,7 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C22E5AF20954174009BC24A /* Forest2.mp3 in Resources */,
+				D71E6EC42097BBA9009E0EF6 /* Forest2.mp3 in Resources */,
 				D7F274E02061D17F00F3C901 /* LaunchScreen.storyboard in Resources */,
 				9CF8560820869E280082D84D /* GoogleService-Info.plist in Resources */,
 				D7F274DD2061D17F00F3C901 /* Assets.xcassets in Resources */,
