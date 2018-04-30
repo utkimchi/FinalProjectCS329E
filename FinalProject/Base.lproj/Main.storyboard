@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gJN-Ux-njm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gJN-Ux-njm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1159,10 +1159,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7c-VK-9Ad">
-                                <rect key="frame" x="46" y="617" width="38" height="30"/>
-                                <state key="normal" title="Undo"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jz5-ZC-PWk">
                                 <rect key="frame" x="166" y="548" width="43" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -1177,15 +1173,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-vm-h7G">
-                                <rect key="frame" x="92" y="626" width="267" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Save something!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nh7-Gp-eAL">
+                                <rect key="frame" x="16" y="597" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Save something!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nh7-Gp-eAL">
-                                <rect key="frame" x="16" y="597" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Trash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-vm-h7G">
+                                <rect key="frame" x="16" y="626" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1194,7 +1189,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RS2-Nd-R2R" firstAttribute="top" secondItem="UI4-Ec-P2t" secondAttribute="top" constant="86" id="45D-4C-9wv"/>
-                            <constraint firstItem="r7c-VK-9Ad" firstAttribute="leading" secondItem="UI4-Ec-P2t" secondAttribute="leading" constant="46" id="8el-Ax-EhP"/>
+                            <constraint firstItem="gwy-vm-h7G" firstAttribute="leading" secondItem="UI4-Ec-P2t" secondAttribute="leading" constant="16" id="8jt-Nc-yOy"/>
                             <constraint firstItem="pjM-tk-nMT" firstAttribute="leading" secondItem="UI4-Ec-P2t" secondAttribute="leading" constant="16" id="9Eg-hs-gWU"/>
                             <constraint firstItem="fDi-29-wNb" firstAttribute="centerX" secondItem="UI4-Ec-P2t" secondAttribute="centerX" id="Bfr-54-ZmM"/>
                             <constraint firstItem="jz5-ZC-PWk" firstAttribute="centerX" secondItem="UI4-Ec-P2t" secondAttribute="centerX" id="Cpm-YK-Psw"/>
@@ -1208,7 +1203,7 @@
                             <constraint firstItem="Nh7-Gp-eAL" firstAttribute="top" secondItem="UI4-Ec-P2t" secondAttribute="top" constant="533" id="jIY-Oh-Pef"/>
                             <constraint firstItem="fWs-Zk-AgT" firstAttribute="centerX" secondItem="UI4-Ec-P2t" secondAttribute="centerX" id="ksQ-8z-EGt"/>
                             <constraint firstItem="fDi-29-wNb" firstAttribute="top" secondItem="UI4-Ec-P2t" secondAttribute="top" constant="14" id="m9n-lj-8c3"/>
-                            <constraint firstItem="r7c-VK-9Ad" firstAttribute="top" secondItem="UI4-Ec-P2t" secondAttribute="top" constant="553" id="syA-cs-mYW"/>
+                            <constraint firstItem="gwy-vm-h7G" firstAttribute="top" secondItem="UI4-Ec-P2t" secondAttribute="top" constant="562" id="tOi-bt-mCW"/>
                             <constraint firstItem="jz5-ZC-PWk" firstAttribute="top" secondItem="UI4-Ec-P2t" secondAttribute="top" constant="484" id="zjE-ss-N7V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UI4-Ec-P2t"/>
