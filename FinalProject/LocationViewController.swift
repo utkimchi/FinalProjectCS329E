@@ -105,6 +105,42 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UISea
         manager.startUpdatingLocation()
     }
 
+    //Sets info
+    var ownerInfoArr = [NSManagedObject]()
+    var ownerInfo = NSManagedObject()
+    
+    //Pulls Owner's Name from CoreData for background color
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Recycler")
+    
+        var fetchedResult: [NSManagedObject]? = nil
+        
+        do {
+            try fetchedResult = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        if let results = fetchedResult {
+            ownerInfoArr = results
+        } else {
+            print("Could not fetch")
+        }
+        //Pulls the data from owner to Array
+        ownerInfo = ownerInfoArr[0]
+        
+        let background = ownerInfo.value(forKey: "backgroundColor") as? Int
+        indes = background!
+        self.view.backgroundColor = colors[indes]
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

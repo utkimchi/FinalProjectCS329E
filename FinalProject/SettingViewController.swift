@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class SettingViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -21,10 +22,29 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
     
     //Notification button
     @IBOutlet weak var notification: UILabel!
+    
     @IBAction func notificationswitch(_ sender: UISwitch) {
-        
         if (sender.isOn == true) {
             notification.text = "On"
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+                //check to see if user did allow
+                if didAllow {
+                    print("allow")
+                    
+                    let content = UNMutableNotificationContent()
+                    content.title = "You have a message from Recyclops:"
+                    content.subtitle = "Time to update your tracker!"
+                    content.body = "Recycling turns things into other things, which is like MAGIC"
+                    content.badge = 1
+                    
+                    //takes 5 second for notification to display and doesn't repeat
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                    
+                    let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)                } else {
+                    print("not allow")
+                }
+            })
         } else {
             notification.text = "Off"
         }
@@ -255,6 +275,7 @@ class SettingViewController: UIViewController, UINavigationControllerDelegate, U
         print(self.humanName)
         self.getImage(imageName:self.humanName+"profile.png")
         // Do any additional setup after loading the view.
+        
     }
     
     //setting the screeentitle
