@@ -455,7 +455,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EId-cG-m8J">
-                                <rect key="frame" x="73" y="595" width="44" height="30"/>
+                                <rect key="frame" x="61" y="595" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Profile"/>
                                 <connections>
@@ -469,14 +469,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLJ-c5-gVL">
-                                <rect key="frame" x="172" y="595" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="5tU-Yu-kgp" kind="show" identifier="badgeSegue" id="NT7-FA-xdK"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2d-0c-VTx">
                                 <rect key="frame" x="285" y="64" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -491,6 +483,14 @@
                                 <state key="normal" title="Stop Music"/>
                                 <connections>
                                     <action selector="stopMusic:" destination="Jtx-EV-3wH" eventType="touchUpInside" id="OfJ-iQ-RX8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLJ-c5-gVL">
+                                <rect key="frame" x="161" y="595" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Badges"/>
+                                <connections>
+                                    <segue destination="5tU-Yu-kgp" kind="show" identifier="badgeSegue" id="NT7-FA-xdK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -896,7 +896,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Plastic Badge" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cDa-pO-N2K">
-                                <rect key="frame" x="20" y="183" width="62" height="49.5"/>
+                                <rect key="frame" x="0.0" y="159" width="103" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -924,56 +924,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badge1" translatesAutoresizingMaskIntoConstraints="NO" id="Vu4-BO-2ND">
-                                <rect key="frame" x="16" y="107" width="71" height="68"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plasticbadge" translatesAutoresizingMaskIntoConstraints="NO" id="Vu4-BO-2ND">
+                                <rect key="frame" x="16" y="83" width="71" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Paper Badge" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RPT-si-0UD">
-                                <rect key="frame" x="156" y="183" width="62" height="49.5"/>
+                                <rect key="frame" x="137" y="159" width="100" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badge1" translatesAutoresizingMaskIntoConstraints="NO" id="GzP-fM-aMK">
-                                <rect key="frame" x="152" y="107" width="71" height="68"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paperbadge" translatesAutoresizingMaskIntoConstraints="NO" id="GzP-fM-aMK">
+                                <rect key="frame" x="152" y="83" width="71" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Metal Badge" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BfS-gX-dha">
-                                <rect key="frame" x="292" y="183" width="62" height="49.5"/>
+                                <rect key="frame" x="267" y="159" width="102" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badge1" translatesAutoresizingMaskIntoConstraints="NO" id="0gJ-z7-KiQ">
-                                <rect key="frame" x="288" y="107" width="71" height="68"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="metalbadge" translatesAutoresizingMaskIntoConstraints="NO" id="0gJ-z7-KiQ">
+                                <rect key="frame" x="283" y="83" width="71" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Glass Badge" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Q3-sY-Gzf">
-                                <rect key="frame" x="20" y="293" width="62" height="49.5"/>
+                                <rect key="frame" x="4" y="293" width="95" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badge1" translatesAutoresizingMaskIntoConstraints="NO" id="H1A-jk-yu9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glassbadge" translatesAutoresizingMaskIntoConstraints="NO" id="H1A-jk-yu9">
                                 <rect key="frame" x="16" y="217" width="71" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badge1" translatesAutoresizingMaskIntoConstraints="NO" id="0yg-4x-URh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardboardbadge" translatesAutoresizingMaskIntoConstraints="NO" id="0yg-4x-URh">
                                 <rect key="frame" x="152" y="217" width="71" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Savior of the Earth" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="H6g-mY-4jm">
-                                <rect key="frame" x="292" y="293" width="62" height="66.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badge1" translatesAutoresizingMaskIntoConstraints="NO" id="mSm-Jq-vEg">
-                                <rect key="frame" x="288" y="217" width="71" height="68"/>
+                                <rect key="frame" x="283" y="214" width="71" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6I-5g-D7A">
@@ -986,7 +979,14 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Cardboard Badge" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="b96-c8-F56">
-                                <rect key="frame" x="156" y="293" width="62" height="66.5"/>
+                                <rect key="frame" x="119" y="293" width="136" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Savior of the Earth" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="H6g-mY-4jm">
+                                <rect key="frame" x="273" y="285" width="91" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1288,6 +1288,11 @@
         <image name="RecyclopsLOGO" width="200" height="200"/>
         <image name="background1" width="736" height="1308"/>
         <image name="badge1" width="700" height="700"/>
+        <image name="cardboardbadge" width="700" height="700"/>
+        <image name="glassbadge" width="700" height="700"/>
+        <image name="metalbadge" width="700" height="700"/>
+        <image name="paperbadge" width="700" height="700"/>
+        <image name="plasticbadge" width="700" height="700"/>
         <image name="userprofile" width="550" height="548"/>
     </resources>
     <inferredMetricsTieBreakers>
